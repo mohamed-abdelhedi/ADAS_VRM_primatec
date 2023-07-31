@@ -32,7 +32,7 @@ public class userController {
     @PutMapping("/{id}")
     public user updateUser(@PathVariable UUID id, @RequestBody user updatedUser) {
 
-   //    if (!id.equals(updatedUser.getUser_id())) {
+       //if (!id.equals(updatedUser.getUser_id())) {
      //      throw new IllegalArgumentException("User id in path variable does not match the id in the request body.");
     //    }
 
