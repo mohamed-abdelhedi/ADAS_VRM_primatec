@@ -1,11 +1,9 @@
 package com.primatec.ADAS.services;
 
 import com.primatec.ADAS.DAO.teamDAO;
-import com.primatec.ADAS.DAO.usersDAO;
 import com.primatec.ADAS.model.project;
 import com.primatec.ADAS.model.resource;
 import com.primatec.ADAS.model.team;
-import com.primatec.ADAS.model.user;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

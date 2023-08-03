@@ -12,10 +12,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class userTeamServices {
@@ -32,50 +29,75 @@ public class userTeamServices {
         this.projectDAO=projectDAO;
 
     }
-    public void assignResourcesUsersAndProjectsToTeam(UUID teamId, Set<UUID> resourceIds, Set<UUID> userIds, Set<UUID> projectIds) {
+    public void assignUsersToTeam(UUID teamId, Set<UUID> userIds) {
         Optional<team> optionalTeam = teamDao.findById(teamId);
 
         if (optionalTeam.isPresent()) {
             team team = optionalTeam.get();
-            Set<resource> resources = new HashSet<>();
+
             Set<user> users = new HashSet<>();
-            Set<project> projects = new HashSet<>();
-
-            for (UUID resourceId : resourceIds) {
-                Optional<resource> optionalResource = resourceDAO.findById(resourceId);
-                optionalResource.ifPresentOrElse(resource -> {
-                    resource.setTeam(team);
-                    resources.add(resource);
-                }, () -> {
-                    throw new EntityNotFoundException("Resource not found with the provided ID.");
-                });
-            }
-
             for (UUID userId : userIds) {
                 Optional<user> optionalUser = userDao.findById(userId);
-                optionalUser.ifPresentOrElse(users::add, () -> {
-                    throw new EntityNotFoundException("User not found with the provided ID.");
-                });
+                optionalUser.ifPresent(users::add);
             }
 
-            for (UUID projectId : projectIds) {
-                Optional<project> optionalProject = projectDAO.findById(projectId);
-                optionalProject.ifPresentOrElse(project -> {
-                    project.setTeam(team);
-                    projects.add(project);
-                }, () -> {
-                    throw new EntityNotFoundException("Project not found with the provided ID.");
-                });
-            }
-
-            team.setResources(resources);
             team.setUsers(users);
-            team.setProject(projects);
             teamDao.save(team);
         } else {
             throw new EntityNotFoundException("Team not found with the provided ID.");
         }
     }
+
+    public void assignResourcesToTeam(UUID teamId, Set<UUID> resourceIds) {
+        Optional<team> optionalTeam = teamDao.findById(teamId);
+
+        if (optionalTeam.isPresent()) {
+            team team = optionalTeam.get();
+            List<resource> resources = resourceDAO.findAllById(resourceIds);
+
+            // Check if all resourceIds were found
+            if (resources.size() != resourceIds.size()) {
+                throw new EntityNotFoundException("Resource not found with the provided ID(s).");
+            }
+
+            // Update the relationships
+            for (resource resource : resources) {
+                resource.setTeam(team);
+            }
+
+            // Save the team with the updated relationships
+            team.setResources(new HashSet<>(resources));
+            teamDao.save(team);
+        } else {
+            throw new EntityNotFoundException("Team not found with the provided ID.");
+        }
+    }
+
+    public void assignProjectsToTeam(UUID teamId, Set<UUID> projectIds) {
+        Optional<team> optionalTeam = teamDao.findById(teamId);
+
+        if (optionalTeam.isPresent()) {
+            team team = optionalTeam.get();
+            List<project> projects = projectDAO.findAllById(projectIds);
+
+            // Check if all projectIds were found
+            if (projects.size() != projectIds.size()) {
+                throw new EntityNotFoundException("Project not found with the provided ID(s).");
+            }
+
+            // Update the relationships
+            for (project project : projects) {
+                project.setTeam(team);
+            }
+
+            // Save the team with the updated relationships
+            team.setProject(new HashSet<>(projects));
+            teamDao.save(team);
+        } else {
+            throw new EntityNotFoundException("Team not found with the provided ID.");
+        }
+    }
+
 
 
 }

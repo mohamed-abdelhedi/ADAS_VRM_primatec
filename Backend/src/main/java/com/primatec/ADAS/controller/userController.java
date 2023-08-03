@@ -1,6 +1,6 @@
 package com.primatec.ADAS.controller;
-import com.primatec.ADAS.services.userServices;
 import com.primatec.ADAS.model.user;
+import com.primatec.ADAS.services.userServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

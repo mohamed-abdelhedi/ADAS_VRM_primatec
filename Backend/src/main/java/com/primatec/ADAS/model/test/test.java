@@ -1,15 +1,15 @@
 package com.primatec.ADAS.model.test;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.primatec.ADAS.model.project;
 import com.primatec.ADAS.model.user;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDate;
-import java.util.Optional;
 import java.util.UUID;
 
 @Entity
@@ -24,6 +24,16 @@ public class test {
     private String testName;
     private LocalDate testDate;
 
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    private String domain;
+
 
     private int testpriority;
     @Enumerated(EnumType.STRING)
@@ -37,6 +47,7 @@ public class test {
     // Many tests can be associated with one project
     @ManyToOne
     @JoinColumn(name = "project_id")
+    @JsonIgnore
     private com.primatec.ADAS.model.project project;
 
     public test() {
@@ -103,12 +114,14 @@ public class test {
                 @JsonProperty("testName") String testName,
                 @JsonProperty("testDate") LocalDate testDate,
                 @JsonProperty("testResult") testResult testResult,
-                @JsonProperty("testpriority") int testpriority) {
+                @JsonProperty("testpriority") int testpriority,
+                @JsonProperty("tester") user tester,
+                @JsonProperty("domain") String domain) {
         this.testId = testId;
         this.testName = testName;
         this.testDate = testDate;
         this.testResult = testResult;
         this.testpriority=testpriority;
-
-    }
+        this.tester=tester;
+    this.domain=domain;}
 }

@@ -1,8 +1,8 @@
 package com.primatec.ADAS.model;
 
-import com.primatec.ADAS.model.test.test;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.primatec.ADAS.model.test.test;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;

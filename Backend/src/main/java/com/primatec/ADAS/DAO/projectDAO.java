@@ -1,7 +1,6 @@
 package com.primatec.ADAS.DAO;
 
 import com.primatec.ADAS.model.project;
-import com.primatec.ADAS.model.resource;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

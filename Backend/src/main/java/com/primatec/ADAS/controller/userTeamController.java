@@ -15,16 +15,22 @@ public class userTeamController {
     public void userTeamController(userTeamServices userTeamServices) {
         this.userTeamServices = userTeamServices;}
 
-    @PutMapping("/{teamId}/assign-resources-users-and-projects")
-    public void assignResourcesUsersAndProjectsToTeam(
-            @PathVariable UUID teamId,
-            @RequestBody Map<String, Set<UUID>> request) {
-
-        Set<UUID> resourceIds = request.get("resourceIds");
+    @PutMapping("/{teamId}/assign-users")
+    public void assignUsersToTeam(@PathVariable UUID teamId, @RequestBody Map<String, Set<UUID>> request) {
         Set<UUID> userIds = request.get("userIds");
-        Set<UUID> projectIds = request.get("projectIds");
+        userTeamServices.assignUsersToTeam(teamId, userIds);
+    }
 
-        userTeamServices.assignResourcesUsersAndProjectsToTeam(teamId, resourceIds, userIds, projectIds);
+    @PutMapping("/{teamId}/assign-resources")
+    public void assignResourcesToTeam(@PathVariable UUID teamId, @RequestBody Map<String, Set<UUID>> request) {
+        Set<UUID> resourceIds = request.get("resourceIds");
+        userTeamServices.assignResourcesToTeam(teamId, resourceIds);
+    }
+
+    @PutMapping("/{teamId}/assign-projects")
+    public void assignProjectsToTeam(@PathVariable UUID teamId, @RequestBody Map<String, Set<UUID>> request ) {
+        Set<UUID> projectIds= request.get("projectIds");
+        userTeamServices.assignProjectsToTeam(teamId, projectIds);
     }
 
 }

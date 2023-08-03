@@ -1,11 +1,14 @@
 package com.primatec.ADAS.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.primatec.ADAS.model.test.test;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-import java.util.Date;
-import java.util.UUID;
+
+import java.util.*;
 
 @Entity
 @Table(name="users")
@@ -38,6 +41,8 @@ public class user {
     private String tools;
     @Column(name="technologies")
     private String technologies;
+    @Column(name="imgLink")
+    private String imgLink;
 
 
 
@@ -90,8 +95,7 @@ public class user {
         this.phone_number = phone_number;
     }
 
-    @Column(name="imgLink")
-    private String imgLink;
+
 
 
     public user() {}
@@ -199,5 +203,29 @@ public class user {
                 ", imgLink='" + imgLink + '\'' +
                 ", phone_number='" + phone_number + '\'' +
                 '}';
+    }
+
+
+    @ManyToMany(mappedBy = "users")
+    @JsonIgnore
+    private Set<team> teams = new HashSet<>();
+
+    public Set<team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(Set<team> teams) {
+        this.teams = teams;
+    }
+
+    @OneToMany(mappedBy = "tester")
+    @JsonIgnore
+    private List<test> tests;
+    public List<test> getTests() {
+        return tests;
+    }
+
+    public void setTests(List<test> tests) {
+        this.tests = tests;
     }
 }

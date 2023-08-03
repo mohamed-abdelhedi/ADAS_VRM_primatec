@@ -28,6 +28,11 @@ public class team {
     @Column(name="description")
     private String description;
 
+
+
+
+
+
   public Set<resource> getResources() {
        return resources;
   }
@@ -52,15 +57,15 @@ public class team {
     @ManyToMany
     @JoinTable(
             name = "user_team",
-            joinColumns = @JoinColumn(name = "team_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
+            joinColumns = @JoinColumn(name = "team_id", referencedColumnName = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     )
     private Set<user> users = new HashSet<>();
-
 
     public team(Long team_id) {
         this.team_id = UUID.randomUUID();;
     }
+
 
 
 
