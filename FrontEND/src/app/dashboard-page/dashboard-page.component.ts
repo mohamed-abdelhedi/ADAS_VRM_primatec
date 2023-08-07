@@ -10,14 +10,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-  selector: 'dashboard-page',
+    selector: 'dashboard-page',
   templateUrl: './dashboard-page.component.html',
   styleUrls: ['./dashboard-page.component.css']
 })
 export class DashboardPageComponent {
 
 
-  activeNavItem: number = 0;
+  activeNavItem: number = 1;
   onNavItemClicked(navItem: number) {
     this.activeNavItem = navItem;
   }
