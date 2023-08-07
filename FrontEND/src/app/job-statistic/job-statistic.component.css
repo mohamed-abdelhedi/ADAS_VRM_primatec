@@ -1,0 +1,9 @@
+#chart {
+  width: 1093px;
+  height: 362px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 2px solid #ECEEF6;
+  background: #FFF;
+}
+

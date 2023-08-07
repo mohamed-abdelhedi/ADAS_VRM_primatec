@@ -1,0 +1,155 @@
+/* Sidebar Styles */
+.sidebar {
+  border-right: 1px solid #e8e8e8;
+  background: #fff;
+  height: 100vh;
+  margin-top: 0px;
+  box-shadow: 0px 20px 50px 0px rgba(220, 224, 249, 0.5);
+}
+
+/* User Info Styles */
+.user-info {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.user-image {
+  border-radius: 52px;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  color: #000;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.18px;
+  margin-bottom: 0;
+}
+
+.user-job {
+  color: #a4a4a4;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.13px;
+  margin-bottom: 0;
+}
+
+/* Navigation List Styles */
+.nav-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-li {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 16px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.nav-icon {
+  color: black;
+  font-size: 20px;
+}
+
+.nav-icon-active {
+  color: #264eca;
+}
+
+.nav-title {
+  color: #0c0c0d;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 18.971px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.19px;
+}
+
+.active-item {
+  background: #f8f8f8;
+}
+
+.selected {
+  width: 6px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 0px 8px 8px 0px;
+  background: #264eca;
+  box-shadow: 0px 8px 12px 0px rgba(135, 145, 233, 0.3);
+}
+
+.custom-title {
+  color: #264eca;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 18.971px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.19px;
+}
+
+/* Media query for responsive styles */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .user-info {
+    margin: 10px;
+  }
+
+  .user-image {
+    width: 42px;
+    height: 42px;
+  }
+
+  .user-name {
+    font-size: 16px;
+  }
+
+  .user-job {
+    font-size: 12px;
+  }
+
+  .custom-li {
+    padding: 10px;
+    margin-bottom: 10px;
+    gap: 12px; /* Adjust gap for smaller screens */
+  }
+
+  .nav-icon {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+
+  .nav-title {
+    font-size: 16px;
+  }
+}
