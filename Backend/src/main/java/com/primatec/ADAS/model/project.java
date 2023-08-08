@@ -2,7 +2,8 @@ package com.primatec.ADAS.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.primatec.ADAS.model.test.test;
+
+import com.primatec.ADAS.model.workload.Workload;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -38,11 +39,9 @@ public class project {
     @JoinColumn(name = "team_id")
     private team team;
 
+    @ManyToMany(mappedBy = "projects")
+    private Set<Workload> workloads = new HashSet<>();
 
-
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("project")
-    private Set<test> tests = new HashSet<>();
 
     // Constructors, getters, and setters
 
@@ -119,11 +118,4 @@ public class project {
                 '}';
     }
 
-    public Set<test> getTests() {
-        return tests;
-    }
-
-    public void setTests(Set<test> tests) {
-        this.tests = tests;
-    }
 }

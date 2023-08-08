@@ -11,8 +11,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { JobStatisticComponent } from './job-statistic/job-statistic.component';
 import {NgApexchartsModule} from "ng-apexcharts";
+import { EmployeePageComponent } from './employee-page/employee-page.component';
 
+import { CommonModule } from '@angular/common';
+import {NgxPaginationModule} from "ngx-pagination";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatButtonModule} from "@angular/material/button";
+import { AddEmployeeDialogComponent } from './add-employee-dialog/add-employee-dialog.component';
 
 
 @NgModule({
@@ -23,13 +29,20 @@ import {NgApexchartsModule} from "ng-apexcharts";
     DashboardPageComponent,
     NavBarComponent,
     SideBarComponent,
-    JobStatisticComponent
+    JobStatisticComponent,
+    EmployeePageComponent,
+    AddEmployeeDialogComponent,
+
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FontAwesomeModule,
     NgApexchartsModule,
+    CommonModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatButtonModule
 
   ],
   providers: [],

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
-  activeNavItem: number = 1;
+  activeNavItem: number = 2;
 
   onNavItemClicked(navItem: number) {
     this.activeNavItem = navItem;}

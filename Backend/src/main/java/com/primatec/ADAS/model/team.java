@@ -28,7 +28,9 @@ public class team {
     @Column(name="description")
     private String description;
 
-
+    @ManyToOne
+    @JoinColumn(name = "team_Lead_id")
+    private user teamLead;
 
 
 

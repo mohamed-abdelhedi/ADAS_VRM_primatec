@@ -1,16 +1,18 @@
 <nav-bar></nav-bar>
 <div class="custom-container" >
   <div class="sidebar">
-<side-bar (navItemClicked)="onNavItemClicked($event)"></side-bar>
+    <side-bar (navItemClicked)="onNavItemClicked($event)"></side-bar>
 
   </div >
   <!-- Main Content Area -->
   <div class="main-content">
     <!-- Dashboard Component -->
     <dashboard-page *ngIf="activeNavItem === 1"></dashboard-page>
+    <employee-page *ngIf="activeNavItem === 2"></employee-page>
 
 
     <!-- Other Components for different navigation items can be added here -->
   </div>
 
 </div>
+<login-page></login-page>
