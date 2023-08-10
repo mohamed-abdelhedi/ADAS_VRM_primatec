@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+}
+
+.form-row .input-container {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.form-row .input-container:last-child {
+  margin-right: 0;
+  margin-left: 100px;
+}
+.input-container{
+  display: flex;
+  width: 240px;
+  height: 50px;
+  padding: 16px;
+
+
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid #CCC;
+}
+input{
+
+}
+.add-employee-form{
+  overflow-y: hidden;
+  height: 100%;
+  border-right: 1px solid #E8E8E8;
+  background: #FFF;
+  padding: 20px;
+
+  /* Drop_1 */
+  box-shadow: 0px 20px 50px 0px rgba(220, 224, 249, 0.50);
+
+}
+.transparent-input {
+  border: none; /* Remove the default input border */
+  background-color: transparent; /* Set the input background to transparent */
+  flex: 1; /* Allow the input to fill the remaining space in the container */
+  outline: none; /* Optional: Remove the default focus outline */
+  font-family: 'Montserrat', sans-serif;
+  color: #666666;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 20px; /* 142.857% */
+
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.image-label {
+  position: relative;
+  cursor: pointer;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.circle fa-icon {
+  color: white;
+
+}
+.button-container{
+  display: flex;
+  justify-content: right;
+  margin-top: 50px;
+}
+.clear-button{
+  border-radius: 8px;
+  border: 1px solid #264ECA;
+  background: #fff;
+  width: 140px;
+  padding: 10px;
+  gap: 10px;
+  color: #7A5CFA;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-right: 30px;
+
+}
+.add-button{
+  width: 140px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #264ECA;
+  color: white;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+  line-height: 24px; /* 150% */
+  border: none;
+}
+/* custom-select.css */
+.custom-select {
+  border: 1px solid #E8E8E8; /* Add your desired border style */
+  border-radius: 8px; /* Add border radius */
+  background-color: #fff;
+  width: 450px;
+  color: white;
+
+}
+
+.custom-select .mat-select-value {
+  padding: 5px; /* Adjust padding */
+}
+
+.custom-select .mat-option {
+  padding: 5px 10px; /* Adjust padding for options */
+  color: #fff; /* Adjust text color for options */
+}
+
+.custom-select .mat-option:hover {
+  background-color: #fff; /* Adjust background color on hover */
+}
+textarea{
+  display: flex;
+  height: 147px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #CCC;
+ width: 100%;
+}
+.word{
+  right: 0;
+  display: flex;
+  justify-content: right;
+}

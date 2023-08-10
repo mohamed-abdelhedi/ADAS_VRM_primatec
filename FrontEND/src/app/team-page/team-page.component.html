@@ -1,0 +1,38 @@
+<div class="button-container">
+
+  <button class="custom-button btn"   routerLink="/add-employee" >Add Team</button>
+
+  <!-- Your employee list here... -->
+</div>
+<div class="employee-list">
+  <table>
+
+    <thead>
+    <tr>
+      <th >Name</th>
+      <th >Department</th>
+      <th>Group</th>
+      <th>Total Projects</th>
+      <th>Employees</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let team of teams  | paginate: { itemsPerPage: 10, currentPage: p }">
+
+      <td>
+
+        <p class="employee-name" >{{ team.name }}</p>
+   </td>
+      <td>{{ team.department }}</td>
+      <td>{{ team.group }}</td>
+      <td>{{ team.totalProjects }}</td>
+
+<td><img class="employee-image" src="/assets/userImg.png" alt="">
+  <img class="employee-image" src="/assets/userImg.png" alt="">
+  <img class="employee-image" src="/assets/userImg.png" alt="">
+  <img class="employee-image" src="/assets/userImg.png" alt=""></td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+</div>

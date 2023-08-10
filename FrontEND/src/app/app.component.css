@@ -2,7 +2,6 @@
 .custom-container {
   display: flex; /* Use flexbox */
   margin: 0;
-
   padding: 0;
 }
 

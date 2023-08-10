@@ -1,0 +1,51 @@
+
+<div class="add-employee-form">
+  <div class="form-header">
+
+    <div class="form-row">
+      <div class="input-container">
+        <input type="text" placeholder="Diploma" class="transparent-input">
+      </div>
+      <div class="input-container">
+        <input type="date" placeholder="Birthdate" class="transparent-input">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-container">
+        <input type="email" placeholder="Diploma" class="transparent-input">
+      </div>
+      <div class="input-container">
+        <input type="date" placeholder="Birthdate" class="transparent-input">
+      </div>
+    </div>
+    <div class="form-row">
+
+        <mat-form-field class="custom-select">
+          <mat-label>Select Skills</mat-label>
+          <mat-select [formControl]="toppings" multiple>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      <mat-form-field class="custom-select">
+        <mat-label>Select Skills</mat-label>
+        <mat-select [formControl]="toppings" multiple>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <div>
+  <textarea
+    [(ngModel)]="text"
+    (input)="countWords()"
+    placeholder="Description"
+  ></textarea>
+      <p class="word" >{{ wordCount }} / 250 words</p>
+    </div>
+    <div class="button-container">
+      <button class="clear-button">Clear</button>
+      <button class="add-button">Submit</button>
+    </div>
+
+  </div></div>

@@ -8,6 +8,7 @@ import {
   faUser,
   faUsers
 } from "@fortawesome/free-solid-svg-icons";
+import {Router} from "@angular/router";
 @Component({
   selector: 'side-bar',
   templateUrl: './side-bar.component.html',
@@ -18,10 +19,7 @@ export class SideBarComponent {
   @Output() navItemClicked = new EventEmitter<number>();
   activeNavItem: number = 1; // Initialize activeNavItem with a default value (e.g., 1 for Dashboard)
 
-  onNavItemClicked(navItem: number) {
-    this.activeNavItem = navItem; // Update the activeNavItem when a navigation item is clicked
-    this.navItemClicked.emit(navItem);
-  }
+
 
   protected readonly faDashboard = faDashboard;
   protected readonly faBookReader = faBookReader;
@@ -30,4 +28,20 @@ export class SideBarComponent {
   protected readonly faLaptop = faLaptop;
   protected readonly faAddressCard = faAddressCard;
   protected readonly faGear = faGear;
+
+  constructor(private router: Router) {}
+
+  onNavItemClicked(navItem: number) {
+    if (navItem === 1) {
+      this.router.navigate(['/dashboard']);
+      this.activeNavItem=1;
+    } else if (navItem === 2) {
+      this.router.navigate(['/employee']);
+      this.activeNavItem=2;
+    } else if (navItem === 3) {
+      this.router.navigate(['/team']);
+      this.activeNavItem=3;
+    }
+    // ... handle other navigation items
+  }
 }

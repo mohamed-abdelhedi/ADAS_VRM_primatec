@@ -1,0 +1,40 @@
+<div class="button-container">
+
+<button class="custom-button btn"  (click)="navigateToAddEmployee()" >Add Employee</button>
+
+  <!-- Your employee list here... -->
+</div>
+<div class="employee-list">
+  <table>
+
+    <thead>
+    <tr>
+      <th >Name</th>
+      <th >Department</th>
+      <th>Group</th>
+      <th>Total Projects</th>
+      <th>Total Tasks</th>
+      <th>Age</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let employee of employees  | paginate: { itemsPerPage: 10, currentPage: p }">
+
+      <td><div class="employee-info">
+        <img class="employee-image" src="/assets/userImg.png" alt="">
+        <p class="employee-name" >{{ employee.name }}</p>
+      </div></td>
+      <td>{{ employee.department }}</td>
+      <td>{{ employee.group }}</td>
+      <td>{{ employee.totalProjects }}</td>
+      <td>{{ employee.totalTasks }}</td>
+      <td>{{ employee.age }}</td>
+      <td><div [ngClass]="getStatusClass(employee.status)">    {{ employee.status }}</div>
+    </td>
+
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+</div>
