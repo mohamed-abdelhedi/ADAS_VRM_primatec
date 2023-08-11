@@ -29,6 +29,7 @@ import {RouterOutlet} from "@angular/router";
 import { AddEmployeeNextComponent } from './add-employee-next/add-employee-next.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
+import { SkillsDropdownComponent } from './skills-dropdown/skills-dropdown.component';
 
 
 
@@ -46,6 +47,7 @@ import {MatSelectModule} from "@angular/material/select";
     LoginFirstTimeComponent,
     TeamPageComponent,
     AddEmployeeNextComponent,
+    SkillsDropdownComponent,
 
   ],
   imports: [

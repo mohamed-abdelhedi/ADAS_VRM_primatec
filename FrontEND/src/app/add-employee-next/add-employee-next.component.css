@@ -4,7 +4,7 @@
 .form-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 
 }
 
@@ -19,7 +19,7 @@
 }
 .input-container{
   display: flex;
-  width: 240px;
+  width: 400px;
   height: 50px;
   padding: 16px;
 
@@ -56,18 +56,6 @@ input{
 
 }
 
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-  position: relative;
-}
-
-.image-label {
-  position: relative;
-  cursor: pointer;
-}
 
 .circle {
   width: 150px;
@@ -159,4 +147,46 @@ textarea{
   right: 0;
   display: flex;
   justify-content: right;
+}
+
+
+.form-row {
+
+  display: flex;
+  align-items: center;
+}
+
+.transparent-input {
+  /* Your input styles here */
+}
+
+.delete-icon {
+  /* Your delete icon styles here */
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.add-icon {
+  /* Your add icon styles here */
+  font-size: 30px;
+  color: gray;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.form-container {
+  /* Your container styles here */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+.form-header{
+
 }
