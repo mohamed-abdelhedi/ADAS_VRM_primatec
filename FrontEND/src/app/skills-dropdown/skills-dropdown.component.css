@@ -19,3 +19,31 @@
 .custom-select .mat-option:hover {
   background-color: #fff; /* Adjust background color on hover */
 }
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+.table-header {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+  border-right: 1px solid #ddd;
+}
+
+.table-cell {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.rate-cell {
+  text-align: center;
+}
+.star{
+  font-size: 12px;
+}

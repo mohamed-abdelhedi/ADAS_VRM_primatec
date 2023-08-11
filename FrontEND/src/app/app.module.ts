@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -30,6 +30,9 @@ import { AddEmployeeNextComponent } from './add-employee-next/add-employee-next.
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import { SkillsDropdownComponent } from './skills-dropdown/skills-dropdown.component';
+import {IgcFormsModule} from "igniteui-angular";
+import {StarRatingModule} from "angular-star-rating";
+
 
 
 
@@ -50,6 +53,7 @@ import { SkillsDropdownComponent } from './skills-dropdown/skills-dropdown.compo
     SkillsDropdownComponent,
 
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     NgbModule,
@@ -65,7 +69,11 @@ import { SkillsDropdownComponent } from './skills-dropdown/skills-dropdown.compo
     RouterOutlet,
     MatInputModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IgcFormsModule,
+    StarRatingModule.forRoot()
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
