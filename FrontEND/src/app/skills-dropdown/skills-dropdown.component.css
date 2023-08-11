@@ -1,0 +1,21 @@
+.custom-select {
+  border: 1px solid #E8E8E8; /* Add your desired border style */
+  border-radius: 8px; /* Add border radius */
+  background-color: #fff;
+  width: 450px;
+  color: white;
+
+}
+
+.custom-select .mat-select-value {
+  padding: 5px; /* Adjust padding */
+}
+
+.custom-select .mat-option {
+  padding: 5px 10px; /* Adjust padding for options */
+  color: #fff; /* Adjust text color for options */
+}
+
+.custom-select .mat-option:hover {
+  background-color: #fff; /* Adjust background color on hover */
+}

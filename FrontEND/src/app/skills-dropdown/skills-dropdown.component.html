@@ -1,0 +1,10 @@
+<mat-form-field class="custom-select">
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="toppings" multiple (selectionChange)="onToppingsSelectionChange($event)">
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{ topping }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<div *ngFor="let topic of selectedToppings">{{topic}}</div>
+
