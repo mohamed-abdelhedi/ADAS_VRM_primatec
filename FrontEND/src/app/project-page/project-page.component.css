@@ -1,0 +1,105 @@
+.project-page {
+  /* Add your styling for the entire page */
+
+}
+.custom-box{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.project-box {
+  border-radius: 6px;
+  border: 1.812px solid #ECEEF6;
+  background: #FFF;
+  width: 330px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0px 20px 50px 0px rgba(220, 224, 249, 0.50);
+}
+
+.project-title {
+  color: #000;
+  font-family:  'Product Sans', sans-serif;
+  font-size: 20.296px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.203px;
+}
+
+.project-status {
+  color: #FFA51D;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 20.296px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.203px;
+  margin-bottom: 6px;
+}
+
+.assigned-team {
+  color: #000;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 20.296px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.203px;
+  margin-bottom: 6px;
+}
+
+.start-date {
+  color: #000;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 20.296px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.203px;
+}
+.title{
+  color: #000;
+  font-family: Product Sans;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.25px;
+}
+
+.custom-button{
+  border-radius: 12px;
+  background: #264ECA;
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 198px;
+  height: 47px;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: Product Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.2px;
+
+}
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-right: 80px;
+
+}
+.status-in-progress {
+  color: orange;
+}
+
+.status-done {
+  color: green;
+}
+
+.status-failed {
+  color: red;
+}

@@ -1,0 +1,17 @@
+<div class="project-page">
+  <div class="button-container">
+
+    <button class="custom-button btn"  >Add Project</button>
+
+    <!-- Your employee list here... -->
+  </div>
+  <h2 class="title">Total Projects</h2>
+  <div class="custom-box">
+  <div class="project-box" (click)="navigateToAddEmployee()" *ngFor="let project of projects">
+    <div class="project-title">{{ project.title }}</div>
+    <div [class]="'project-status ' + getStatusClass(project.status)">{{ project.status }}</div>
+    <div class="assigned-team">Team : {{ project.assignedTeam }}</div>
+    <div class="start-date">Start-date : {{ project.startDate | date }}</div>
+  </div>
+  </div>
+</div>

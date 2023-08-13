@@ -1,5 +1,5 @@
 <mat-form-field class="custom-select">
-  <mat-label>Toppings</mat-label>
+  <mat-label>Select your skills</mat-label>
   <mat-select [formControl]="skills" multiple (selectionChange)="onToppingsSelectionChange($event)">
     <mat-option *ngFor="let skills of skillsList" [value]="skills">{{ skills }}</mat-option>
   </mat-select>

@@ -1,0 +1,61 @@
+<div class="add-employee-form">
+
+    <div class="form-container">
+
+      <!-- Employee Selection -->
+      <div class="form-row">
+        <select [(ngModel)]="selectedOption" placeholder="Workload" class="custom-select">
+          <option value="0" disabled selected>Select Employee</option>
+          <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+        </select>
+        <input class="custom_input" type="number" min="0" max="100" placeholder="Workload" step="10" />
+      </div>
+
+
+      <!-- Other Selections -->
+      <div class="form-row">
+        <select [(ngModel)]="selectedOption" class="custom-select">
+          <option value="0" disabled selected>Select Team</option>
+          <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+        </select>
+        <input class="textbox-n custom_input"
+               placeholder="Start Date"
+               type="text"
+               onfocus="(this.type='date')"
+               id="date">
+      </div>
+
+      <div class="form-row">
+        <select [(ngModel)]="selectedOption"  class="custom-select">
+          <option value="0" disabled selected>Select Group</option>
+          <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+        </select>
+        <input class="textbox-n custom_input"
+               placeholder="Deadline"
+               type="text"
+               onfocus="(this.type='date')"
+               >
+      </div>
+      <div class="form-row">
+      <select [(ngModel)]="selectedOption"  class="custom-select">
+        <option value="0" disabled selected>Select Department</option>
+        <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+      </select>
+
+
+      </div>
+      <textarea class="text-area"
+                [(ngModel)]="text"
+                (input)="countWords()"
+                placeholder="Description"
+      ></textarea>
+    </div>
+
+
+  <!-- Buttons -->
+  <div class="button-container">
+    <button class="clear-button">Clear</button>
+    <button class="add-button">Submit</button>
+  </div>
+</div>
+
