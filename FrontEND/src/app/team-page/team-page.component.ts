@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import {MyApiService} from "../my-api.service";
 
 interface Employee {
   id: string; // UUID
@@ -75,13 +77,12 @@ export class TeamPageComponent {
   }
 
 
-  isModalOpen = false;
+  constructor(private router: Router,private myApiService: MyApiService) { }
 
-  openModal() {
-    this.isModalOpen = true;
+  navigateToAddTeam() {
+    console.log('Navigating to Add Employee');
+    // Use the router to navigate to the "add-employee" page
+    this.router.navigateByUrl('team/add-team');
   }
 
-  closeModal() {
-    this.isModalOpen = false;
-  }
 }

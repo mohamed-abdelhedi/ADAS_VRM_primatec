@@ -32,6 +32,12 @@ import {MatSelectModule} from "@angular/material/select";
 import { SkillsDropdownComponent } from './skills-dropdown/skills-dropdown.component';
 import {IgcFormsModule} from "igniteui-angular";
 import {StarRatingModule} from "angular-star-rating";
+import { ProjectPageComponent } from './project-page/project-page.component';
+import { AssignUserJobComponent } from './assign-user-job/assign-user-job.component';
+import {HttpClientModule} from "@angular/common/http";
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { AddTeamPageComponent } from './add-team-page/add-team-page.component';
+import { AddProjectPageComponent } from './add-project-page/add-project-page.component';
 
 
 
@@ -51,6 +57,11 @@ import {StarRatingModule} from "angular-star-rating";
     TeamPageComponent,
     AddEmployeeNextComponent,
     SkillsDropdownComponent,
+    ProjectPageComponent,
+    AssignUserJobComponent,
+    ProfilePageComponent,
+    AddTeamPageComponent,
+    AddProjectPageComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -71,8 +82,8 @@ import {StarRatingModule} from "angular-star-rating";
     MatSelectModule,
     ReactiveFormsModule,
     IgcFormsModule,
-    StarRatingModule.forRoot()
-
+    StarRatingModule.forRoot(),
+    HttpClientModule
 
   ],
   providers: [],

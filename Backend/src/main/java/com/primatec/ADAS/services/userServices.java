@@ -42,13 +42,10 @@ public class userServices {
             existingUser.setName(updatedUser.getName());
             existingUser.setBirthdate(updatedUser.getBirthdate());
             existingUser.setExperience(updatedUser.getExperience());
-            existingUser.setDomain(updatedUser.getDomain());
-            existingUser.setDepartment(updatedUser.getDepartment());
+            existingUser.setUsername(updatedUser.getUsername());
             existingUser.setJoinDate(updatedUser.getJoinDate());
             existingUser.setEmail(updatedUser.getEmail());
             existingUser.setDescription(updatedUser.getDescription());
-            existingUser.setTools(updatedUser.getTools());
-            existingUser.setTechnologies(updatedUser.getTechnologies());
             existingUser.setImgLink(updatedUser.getImgLink());
             existingUser.setPhone_number(updatedUser.getPhone_number());
 

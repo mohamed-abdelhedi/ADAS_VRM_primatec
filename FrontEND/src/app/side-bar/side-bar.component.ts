@@ -41,6 +41,12 @@ export class SideBarComponent {
     } else if (navItem === 3) {
       this.router.navigate(['/team']);
       this.activeNavItem=3;
+    }else if (navItem === 4) {
+      this.router.navigate(['/project']);
+      this.activeNavItem=4;
+    }else if (navItem === 5) {
+      this.router.navigate(['/profile']);
+      this.activeNavItem=5;
     }
     // ... handle other navigation items
   }

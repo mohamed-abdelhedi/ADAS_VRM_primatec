@@ -38,6 +38,8 @@ public class Workload {
 
     @Column(name = "workload_state")
     private workloadResult workloadState;
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "percentage")
     private double percentage;

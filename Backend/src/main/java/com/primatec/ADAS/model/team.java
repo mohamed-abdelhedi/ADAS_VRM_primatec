@@ -14,8 +14,6 @@ import java.util.UUID;
 @Entity
 @Table(name="team")
 public class team {
-
-
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
@@ -31,9 +29,6 @@ public class team {
     @ManyToOne
     @JoinColumn(name = "team_Lead_id")
     private user teamLead;
-
-
-
 
   public Set<resource> getResources() {
        return resources;
@@ -67,9 +62,6 @@ public class team {
     public team(Long team_id) {
         this.team_id = UUID.randomUUID();;
     }
-
-
-
 
     // Getter and Setter
     public team() {

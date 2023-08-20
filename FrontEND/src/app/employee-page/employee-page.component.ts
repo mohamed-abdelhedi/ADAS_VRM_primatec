@@ -1,9 +1,6 @@
-import {Component, ViewContainerRef} from '@angular/core';
-import {AddEmployeeDialogComponent} from "../add-employee-dialog/add-employee-dialog.component";
-import {Dialog, DialogRef, DIALOG_DATA, DialogModule} from '@angular/cdk/dialog';
-import {MatDialog} from "@angular/material/dialog";
-
+import {Component, OnInit,} from '@angular/core';
 import {Router} from "@angular/router";
+import {MyApiService} from "../my-api.service";
 interface Employee {
   name: string;
   department: string;
@@ -18,7 +15,7 @@ interface Employee {
   templateUrl: './employee-page.component.html',
   styleUrls: ['./employee-page.component.css']
 })
-export class EmployeePageComponent {
+export class EmployeePageComponent implements OnInit{
   employees: Employee[] = [
     {
       name: "John Doe",
@@ -129,13 +126,11 @@ export class EmployeePageComponent {
       status: 'Offline'
     }
 
-    // Add more employee objects as needed...
+
   ];
   p: number = 1; // Current page number
   itemsPerPage: number = 10; // Number of items to display per page
-  addEmployee() {
-    // You can implement the logic to add a new employee here.
-  }
+
 
   getStatusClass(status: string) {
     return {
@@ -144,23 +139,7 @@ export class EmployeePageComponent {
     };
   }
 
-
-  //constructor(private dialog: MatDialog) {}
-
- // openAddEmployeeDialog(): void {
-  //  const dialogRef = this.dialog.open(AddEmployeeDialogComponent, {
-   //   width: '800px',
-   //   height:'600px',
-   //   panelClass: 'custom-dialog'
-  //  });
-
- //   dialogRef.afterClosed().subscribe(result => {
-     // Handle dialog close if needed
-  //  });
-
-
-  //}
-  constructor(private router: Router) { }
+  constructor(private router: Router,private myApiService: MyApiService) { }
 
   navigateToAddEmployee() {
     console.log('Navigating to Add Employee');
@@ -168,6 +147,8 @@ export class EmployeePageComponent {
     this.router.navigateByUrl('employee/add-employee');
   }
   ngOnInit(): void {
-    console.log('Navigating to Add Employee');
+    this.myApiService.getSomeData().subscribe(response => {
+      console.log(response);
+    });
   }
 }

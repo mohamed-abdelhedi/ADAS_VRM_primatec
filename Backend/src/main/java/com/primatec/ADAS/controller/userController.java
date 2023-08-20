@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/users")
+
 public class userController {
     private userServices userServices;
 

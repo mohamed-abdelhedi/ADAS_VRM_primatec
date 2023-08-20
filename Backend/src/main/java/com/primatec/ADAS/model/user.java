@@ -11,7 +11,7 @@ import org.hibernate.type.SqlTypes;
 import java.util.*;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 
 public class user {
     @Id
@@ -21,29 +21,23 @@ public class user {
     @JdbcTypeCode(SqlTypes.VARCHAR)
 
     private UUID user_id;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
-    @Column(name="birthdate")
+    @Column(name = "username")
+    private String username;
+    @Column(name = "birthdate")
     private Date birthdate;
-    @Column(name="experience")
+    @Column(name = "experience")
     private String experience;
-    @Column(name="domain")
-    private String domain;
-    @Column(name="department")
-    private String department;
-    @Column(name="join_date")
-    private Date joinDate;
-    @Column(name="email")
-    private String email;
-    @Column(name="description")
-    private String description;
-    @Column(name="tools")
-    private String tools;
-    @Column(name="technologies")
-    private String technologies;
-    @Column(name="imgLink")
-    private String imgLink;
 
+    @Column(name = "join_date")
+    private Date joinDate;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "imgLink")
+    private String imgLink;
 
 
     // Getter and setter
@@ -59,13 +53,6 @@ public class user {
         this.experience = experience;
     }
 
-    public void setDomain(String domain) {
-        this.domain = domain;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
 
     public void setJoinDate(Date joinDate) {
         this.joinDate = joinDate;
@@ -79,13 +66,6 @@ public class user {
         this.description = description;
     }
 
-    public void setTools(String tools) {
-        this.tools = tools;
-    }
-
-    public void setTechnologies(String technologies) {
-        this.technologies = technologies;
-    }
 
     public void setImgLink(String imgLink) {
         this.imgLink = imgLink;
@@ -95,24 +75,33 @@ public class user {
         this.phone_number = phone_number;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
 
-
-    public user() {}
+    public user() {
+    }
 
     public String getPhone_number() {
         return phone_number;
     }
 
-    @Column(name="phone_number")
+    @Column(name = "phone_number")
     private String phone_number;
 
     public void setId(UUID user_id) {
         this.user_id = user_id;
     }
+
     public UUID getUser_id() {
         return user_id;
     }
+
     public String getName() {
         return name;
     }
@@ -125,13 +114,6 @@ public class user {
         return experience;
     }
 
-    public String getDomain() {
-        return domain;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
 
     public Date getJoinDate() {
         return joinDate;
@@ -145,13 +127,6 @@ public class user {
         return description;
     }
 
-    public String getTools() {
-        return tools;
-    }
-
-    public String getTechnologies() {
-        return technologies;
-    }
 
     public String getImgLink() {
         return imgLink;
@@ -159,52 +134,42 @@ public class user {
 
     public user(@JsonProperty("user_id") UUID user_id,
                 @JsonProperty("name") String name,
+                @JsonProperty("username") String username,
                 @JsonProperty("birthdate") Date birthdate,
                 @JsonProperty("experience") String experience,
-                @JsonProperty("domain") String domain,
-                @JsonProperty("department") String department,
                 @JsonProperty("joinDate") Date joinDate,
                 @JsonProperty("email") String email,
                 @JsonProperty("description") String description,
-                @JsonProperty("tools") String tools,
-                @JsonProperty("technologies") String technologies,
                 @JsonProperty("imgLink") String imgLink,
-                @JsonProperty("phone_number") String phone_number)
-    {
+                @JsonProperty("phone_number") String phone_number) {
         this.user_id = user_id;
+        this.username = username;
         this.name = name;
         this.birthdate = birthdate;
         this.experience = experience;
-        this.domain = domain;
-        this.department = department;
         this.joinDate = joinDate;
         this.email = email;
         this.description = description;
-        this.tools = tools;
-        this.technologies = technologies;
         this.imgLink = imgLink;
-        this.phone_number=phone_number;
+        this.phone_number = phone_number;
     }
 
     @Override
     public String toString() {
         return "user{" +
-                "id=" + user_id +
+                "user_id=" + user_id +
                 ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
                 ", birthdate=" + birthdate +
                 ", experience='" + experience + '\'' +
-                ", domain='" + domain + '\'' +
-                ", department='" + department + '\'' +
                 ", joinDate=" + joinDate +
                 ", email='" + email + '\'' +
                 ", description='" + description + '\'' +
-                ", tools='" + tools + '\'' +
-                ", technologies='" + technologies + '\'' +
                 ", imgLink='" + imgLink + '\'' +
                 ", phone_number='" + phone_number + '\'' +
+                ", teams=" + teams +
                 '}';
     }
-
 
     @ManyToMany(mappedBy = "users")
     @JsonIgnore
@@ -217,5 +182,8 @@ public class user {
     public void setTeams(Set<team> teams) {
         this.teams = teams;
     }
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserSkill> userSkills = new HashSet<>();
 
 }

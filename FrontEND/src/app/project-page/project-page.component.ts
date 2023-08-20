@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {MyApiService} from "../my-api.service";
 interface Project {
   title: string;
   status: string;
@@ -52,5 +53,11 @@ export class ProjectPageComponent {
     console.log('Navigating to Add Employee');
     // Use the router to navigate to the "add-employee" page
     this.router.navigateByUrl('assign-user-project');
+  }
+
+  navigateToAddProject() {
+    console.log('Navigating to Add Employee');
+    // Use the router to navigate to the "add-employee" page
+    this.router.navigateByUrl('project/add-project');
   }
 }

@@ -7,6 +7,11 @@ import {DashboardPageComponent} from "./dashboard-page/dashboard-page.component"
 import {TeamPageComponent} from "./team-page/team-page.component";
 import {AddEmployeeDialogComponent} from "./add-employee-dialog/add-employee-dialog.component";
 import {AddEmployeeNextComponent} from "./add-employee-next/add-employee-next.component";
+import {ProjectPageComponent} from "./project-page/project-page.component";
+import {AssignUserJobComponent} from "./assign-user-job/assign-user-job.component";
+import {ProfilePageComponent} from "./profile-page/profile-page.component";
+import {AddTeamPageComponent} from "./add-team-page/add-team-page.component";
+import {AddProjectPageComponent} from "./add-project-page/add-project-page.component";
 
 
 const routes: Routes = [
@@ -16,6 +21,11 @@ const routes: Routes = [
   { path: 'team', component: TeamPageComponent },
   { path: 'employee/add-employee', component: AddEmployeeDialogComponent },
   { path: 'employee/add-employee-next', component: AddEmployeeNextComponent },
+  { path: 'project', component: ProjectPageComponent },
+  { path: 'assign-user-project', component: AssignUserJobComponent },
+  { path: 'profile', component: ProfilePageComponent },
+  { path: 'team/add-team', component: AddTeamPageComponent },
+  { path: 'project/add-project', component: AddProjectPageComponent },
 ];
 @NgModule({
   declarations: [],

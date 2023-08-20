@@ -1,0 +1,76 @@
+.employee-info{
+  border-radius: 6px;
+  border: 1.812px solid #ECEEF6;
+  background: #FFF;
+  width: 50%;
+  box-shadow: 0px 20px 50px 0px rgba(220, 224, 249, 0.50);
+  padding: 16px;
+  height: 100vh;
+}
+.user-photo{
+  border-radius: 50%;
+  width: 150px;
+
+}
+.photo{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+
+}
+.custom-row{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+.title{
+  color: #A4A4A4;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.13px;
+  margin-bottom: 6px;
+}
+.custom-column{
+  flex: 1;
+  padding-right: 20px;
+}
+.value{
+  color: #000;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.value-desciption{
+  color: #000;
+  font-family: Product Sans;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.button{
+  display: flex;
+  justify-content: flex-end;
+  bottom: 0;
+}
+.edit-button{
+  width: 140px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #264ECA;
+  text-align: center;
+  font-style: normal;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+  border: none;
+  color: #FFF;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
