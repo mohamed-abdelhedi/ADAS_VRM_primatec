@@ -26,6 +26,14 @@ public class team {
     @Column(name="description")
     private String description;
 
+    public user getTeamLead() {
+        return teamLead;
+    }
+
+    public void setTeamLead(user teamLead) {
+        this.teamLead = teamLead;
+    }
+
     @ManyToOne
     @JoinColumn(name = "team_Lead_id")
     private user teamLead;
@@ -117,4 +125,37 @@ public class team {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    public Set<Department> getDepartments() {
+        return Departments;
+    }
+
+    public void setDepartments(Set<Department> departments) {
+        Departments = departments;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name = "departments_team",
+            joinColumns = @JoinColumn(name = "team_id", referencedColumnName = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "department_id", referencedColumnName = "department_id")
+    )
+    private Set<Department> Departments = new HashSet<>();
+
+
+    public Set<group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<group> groups) {
+        this.groups = groups;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name = "group_team",
+            joinColumns = @JoinColumn(name = "team_id", referencedColumnName = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id", referencedColumnName = "group_id")
+    )
+    private Set<group> groups = new HashSet<>();
 }

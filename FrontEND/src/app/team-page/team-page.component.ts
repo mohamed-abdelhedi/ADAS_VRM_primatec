@@ -84,5 +84,19 @@ export class TeamPageComponent {
     // Use the router to navigate to the "add-employee" page
     this.router.navigateByUrl('team/add-team');
   }
+teamInfo:any;
+  ngOnInit(): void {
+    this.fetchTeamInfo();
+
+  }
+  fetchTeamInfo(): void {
+    this.myApiService.getTeamList().subscribe(
+      (data) => {
+        this.teamInfo = data; // Store the retrieved user information
+        console.log('User Info:', this.teamInfo);
+      },
+
+    );
+  }
 
 }

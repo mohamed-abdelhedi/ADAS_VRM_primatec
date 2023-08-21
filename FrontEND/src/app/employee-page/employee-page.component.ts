@@ -1,133 +1,14 @@
 import {Component, OnInit,} from '@angular/core';
 import {Router} from "@angular/router";
 import {MyApiService} from "../my-api.service";
-interface Employee {
-  name: string;
-  department: string;
-  group: string;
-  totalProjects: number;
-  totalTasks: number;
-  age: number;
-  status: "Online" | "Offline";
-}
+
 @Component({
   selector: 'employee-page',
   templateUrl: './employee-page.component.html',
   styleUrls: ['./employee-page.component.css']
 })
 export class EmployeePageComponent implements OnInit{
-  employees: Employee[] = [
-    {
-      name: "John Doe",
-      department: "HR",
-      group: "Team A",
-      totalProjects: 5,
-      totalTasks: 25,
-      age: 30,
-      status: "Online"
-    },
-    {
-      name: "Jane Smith",
-      department: "IT",
-      group: "Development",
-      totalProjects: 8,
-      totalTasks: 40,
-      age: 28,
-      status: "Offline"
-    },
-    {
-      name: 'Jane Smith',
-      department: 'HR',
-      group: 'Team A',
-      totalProjects: 5,
-      totalTasks: 50,
-      age: 30,
-      status: 'Online'
-    },
-    {
-      name: 'John Doe',
-      department: 'Finance',
-      group: 'Team B',
-      totalProjects: 8,
-      totalTasks: 70,
-      age: 35,
-      status: 'Offline'
-    },
-    {
-      name: "John Doe",
-      department: "HR",
-      group: "Team A",
-      totalProjects: 5,
-      totalTasks: 25,
-      age: 30,
-      status: "Online"
-    },
-    {
-      name: "Jane Smith",
-      department: "IT",
-      group: "Development",
-      totalProjects: 8,
-      totalTasks: 40,
-      age: 28,
-      status: "Offline"
-    },
-    {
-      name: 'Jane Smith',
-      department: 'HR',
-      group: 'Team A',
-      totalProjects: 5,
-      totalTasks: 50,
-      age: 30,
-      status: 'Online'
-    },
-    {
-      name: 'John Doe',
-      department: 'Finance',
-      group: 'Team B',
-      totalProjects: 8,
-      totalTasks: 70,
-      age: 35,
-      status: 'Offline'
-    },
-    {
-      name: "John Doe",
-      department: "HR",
-      group: "Team A",
-      totalProjects: 5,
-      totalTasks: 25,
-      age: 30,
-      status: "Online"
-    },
-    {
-      name: "Jane Smith",
-      department: "IT",
-      group: "Development",
-      totalProjects: 8,
-      totalTasks: 40,
-      age: 28,
-      status: "Offline"
-    },
-    {
-      name: 'Jane Smith',
-      department: 'HR',
-      group: 'Team A',
-      totalProjects: 5,
-      totalTasks: 50,
-      age: 30,
-      status: 'Online'
-    },
-    {
-      name: 'John Doe',
-      department: 'Finance',
-      group: 'Team B',
-      totalProjects: 8,
-      totalTasks: 70,
-      age: 35,
-      status: 'Offline'
-    }
 
-
-  ];
   p: number = 1; // Current page number
   itemsPerPage: number = 10; // Number of items to display per page
 
@@ -146,9 +27,30 @@ export class EmployeePageComponent implements OnInit{
     // Use the router to navigate to the "add-employee" page
     this.router.navigateByUrl('employee/add-employee');
   }
+  userInfo: any;
   ngOnInit(): void {
-    this.myApiService.getSomeData().subscribe(response => {
-      console.log(response);
-    });
+    this.fetchUserInfo();
+
+  }
+  fetchUserInfo(): void {
+    this.myApiService.getEmployeesList().subscribe(
+      (data) => {
+        this.userInfo = data; // Store the retrieved user information
+        console.log('User Info:', this.userInfo);
+      },
+
+    );
+  }
+  getAge(birthdate: string): number {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    let age = today.getFullYear() - birthDate.getFullYear();
+
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    return age;
   }
 }

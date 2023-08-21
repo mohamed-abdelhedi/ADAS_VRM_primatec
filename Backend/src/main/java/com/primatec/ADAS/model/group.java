@@ -31,21 +31,7 @@ public class group {
     @ManyToOne
     @JoinColumn(name = "group_Lead_id")
     private user groupLead;
-    @ManyToMany
-    @JoinTable(
-            name = "group_team",
-            joinColumns = @JoinColumn(name = "group_id", referencedColumnName = "group_id"),
-            inverseJoinColumns = @JoinColumn(name = "team_id", referencedColumnName = "team_id")
-    )
-    private Set<team> teams = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "group_user",
-            joinColumns = @JoinColumn(name = "group_id", referencedColumnName = "group_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    )
-    private Set<user> users = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -92,21 +78,6 @@ public class group {
         this.domain = domain;
     }
 
-    public Set<team> getTeams() {
-        return teams;
-    }
-
-    public void setTeams(Set<team> teams) {
-        this.teams = teams;
-    }
-
-    public Set<user> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<user> users) {
-        this.users = users;
-    }
 
     public Set<Department> getDepartments() {
         return departments;

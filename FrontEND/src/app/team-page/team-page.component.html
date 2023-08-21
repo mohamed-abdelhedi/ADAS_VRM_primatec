@@ -10,21 +10,21 @@
     <thead>
     <tr>
       <th >Name</th>
-      <th >Department</th>
-      <th>Group</th>
+      <th >Team Leader</th>
+      <th>Description</th>
       <th>Total Projects</th>
       <th>Employees</th>
     </tr>
     </thead>
     <tbody>
-    <tr  *ngFor="let team of teams  | paginate: { itemsPerPage: 10, currentPage: p }">
+    <tr  *ngFor="let team of teamInfo  | paginate: { itemsPerPage: 10, currentPage: p }">
 
       <td>
 
         <p class="employee-name" >{{ team.name }}</p>
    </td>
-      <td>{{ team.department }}</td>
-      <td>{{ team.group }}</td>
+      <td>{{ team.teamLead }}</td>
+      <td>{{ team.description }}</td>
       <td>{{ team.totalProjects }}</td>
 
 <td><img class="employee-image" src="/assets/userImg.png" alt="">

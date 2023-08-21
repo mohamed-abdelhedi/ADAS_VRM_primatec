@@ -38,6 +38,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AddTeamPageComponent } from './add-team-page/add-team-page.component';
 import { AddProjectPageComponent } from './add-project-page/add-project-page.component';
+import { ApxColumnComponent } from './apx-column/apx-column.component';
+import { ApxLineComponent } from './apx-line/apx-line.component';
 
 
 
@@ -62,6 +64,8 @@ import { AddProjectPageComponent } from './add-project-page/add-project-page.com
     ProfilePageComponent,
     AddTeamPageComponent,
     AddProjectPageComponent,
+    ApxColumnComponent,
+    ApxLineComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

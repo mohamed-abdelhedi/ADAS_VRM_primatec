@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/teams")
 public class TeamController {
     private teamServices teamServices;

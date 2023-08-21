@@ -5,7 +5,7 @@
   width: 50%;
   box-shadow: 0px 20px 50px 0px rgba(220, 224, 249, 0.50);
   padding: 16px;
-  height: 100vh;
+
 }
 .user-photo{
   border-radius: 50%;
@@ -73,4 +73,18 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+.right-section {
+  width: 50%;
+  right: 0;
+  flex: 1;
+}
+.profile-container{
+  display: flex;
+}
+.apx-column{
+  border-radius: 6px;
+  border: 1.812px solid #ECEEF6;
+  background: #FFF;
+  margin-left: 10px;
 }

@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 @RestController
+@CrossOrigin
 @RequestMapping("/api/teams")
 public class userTeamController {
     private userTeamServices userTeamServices;

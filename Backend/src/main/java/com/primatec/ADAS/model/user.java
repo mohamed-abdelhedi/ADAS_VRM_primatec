@@ -186,4 +186,36 @@ public class user {
     @OneToMany(mappedBy = "user")
     private Set<UserSkill> userSkills = new HashSet<>();
 
+
+    public Set<Department> getDepartments() {
+        return Departments;
+    }
+
+    public void setDepartments(Set<Department> departments) {
+        Departments = departments;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name = "departments_user",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "department_id", referencedColumnName = "department_id")
+    )
+    private Set<Department> Departments = new HashSet<>();
+
+    public Set<group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<group> groups) {
+        this.groups = groups;
+    }
+
+    @ManyToMany
+    @JoinTable(
+            name = "group_user",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id", referencedColumnName = "group_id")
+    )
+    private Set<group> groups = new HashSet<>();
 }

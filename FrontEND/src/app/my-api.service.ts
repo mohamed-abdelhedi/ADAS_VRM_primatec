@@ -10,8 +10,8 @@ export class MyApiService {
 
   constructor(private http: HttpClient) { }
 
-  // Example GET request
-  getSomeData(): Observable<any> {
+  // getEmployeesList GET request
+  getEmployeesList(): Observable<any> {
     const url = `${this.baseUrl}/api/users/all`; // Replace with your actual endpoint URL
     return this.http.get(url);
   }
@@ -26,4 +26,40 @@ export class MyApiService {
     const url = `${this.baseUrl}/api/users/add`; // Replace with your actual endpoint URL
     return this.http.post(url, data);
   }
+
+  // getEmployeesList GET request
+
+  getGroupList(): Observable<any> {
+    const url = `${this.baseUrl}/api/groups/all`; // Replace with your actual endpoint URL
+    return this.http.get(url);
+  }
+  getDepartmentList(): Observable<any> {
+    const url = `${this.baseUrl}/api/departments/all`; // Replace with your actual endpoint URL
+    return this.http.get(url);
+  }
+
+
+  //team apis
+
+  getTeamList(): Observable<any> {
+    const url = `${this.baseUrl}/api/teams/all`; // Replace with your actual endpoint URL
+    return this.http.get(url);
+  }
+
+  addTeam(data: any): Observable<any> {
+    const url = `${this.baseUrl}/api/teams/add`; // Replace with your actual endpoint URL
+    return this.http.post(url, data);
+  }
+//Project api
+
+  getJobList(): Observable<any> {
+    const url = `${this.baseUrl}/api/projects/all`; // Replace with your actual endpoint URL
+    return this.http.get(url);
+  }
+
+  addJob(data: any): Observable<any> {
+    const url = `${this.baseUrl}/api/projects/add`; // Replace with your actual endpoint URL
+    return this.http.post(url, data);
+  }
+
 }

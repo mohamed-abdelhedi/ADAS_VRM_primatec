@@ -37,21 +37,9 @@ public class Department {
     private Set<group> groups = new HashSet<>();
 
 
-    @ManyToMany
-    @JoinTable(
-            name = "departments_team",
-            joinColumns = @JoinColumn(name = "department_id", referencedColumnName = "department_id"),
-            inverseJoinColumns = @JoinColumn(name = "team_id", referencedColumnName = "team_id")
-    )
-    private Set<team> teams = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "departments_user",
-            joinColumns = @JoinColumn(name = "department_id", referencedColumnName = "department_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    )
-    private Set<user> users = new HashSet<>();
+
+
     @ManyToOne
     @JoinColumn(name = "parent_department_id")
     private Department parentDepartment;
@@ -95,13 +83,6 @@ public class Department {
         this.location = location;
     }
 
-    public Set<team> getTeams() {
-        return teams;
-    }
-
-    public void setTeams(Set<team> teams) {
-        this.teams = teams;
-    }
 
     public Set<group> getGroups() {
         return groups;
@@ -111,13 +92,7 @@ public class Department {
         this.groups = groups;
     }
 
-    public Set<user> getUsers() {
-        return users;
-    }
 
-    public void setUsers(Set<user> users) {
-        this.users = users;
-    }
 
     @Override
     public String toString() {

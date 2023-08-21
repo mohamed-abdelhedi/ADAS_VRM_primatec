@@ -6,31 +6,30 @@
 </div>
 <div class="employee-list">
   <table>
-
     <thead>
     <tr>
       <th >Name</th>
       <th >Department</th>
       <th>Group</th>
       <th>Total Projects</th>
-      <th>Total Tasks</th>
+      <th>Total Workload</th>
       <th>Age</th>
       <th>Status</th>
     </tr>
     </thead>
     <tbody>
-    <tr  *ngFor="let employee of employees  | paginate: { itemsPerPage: 10, currentPage: p }">
+    <tr  *ngFor="let user of userInfo  | paginate: { itemsPerPage: 10, currentPage: p }">
 
       <td><div class="employee-info">
         <img class="employee-image" src="/assets/userImg.png" alt="">
-        <p class="employee-name" >{{ employee.name }}</p>
+        <p class="employee-name" >{{ user.name }}</p>
       </div></td>
-      <td>{{ employee.department }}</td>
-      <td>{{ employee.group }}</td>
-      <td>{{ employee.totalProjects }}</td>
-      <td>{{ employee.totalTasks }}</td>
-      <td>{{ employee.age }}</td>
-      <td><div [ngClass]="getStatusClass(employee.status)">    {{ employee.status }}</div>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.totalProjects }}</td>
+      <td>{{ user.totalTasks }}</td>
+      <td>{{ getAge(user.birthdate) }}</td>
+      <td><div [ngClass]="getStatusClass(user.status)">    {{ user.status }}</div>
     </td>
 
     </tr>
