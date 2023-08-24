@@ -1,0 +1,30 @@
+<div class="button-container">
+
+  <button class="custom-button btn"  (click)="navigateToAddDepartment()" >Add Department</button>
+
+  <!-- Your employee list here... -->
+</div>
+<div class="employee-list">
+  <table>
+    <thead>
+    <tr>
+      <th >Name</th>
+      <th >location</th>
+      <th>Lead</th>
+      <th>Parent</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let department of DepartmentInfo  | paginate: { itemsPerPage: 10, currentPage: p }">
+
+      <td><p class="employee-name" >{{ department.name }}</p></td>
+      <td>{{ department.location }}</td>
+      <td>{{ department.parentDepartment }}</td>
+      <td>{{ department.departmentLead }}</td>
+
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+</div>

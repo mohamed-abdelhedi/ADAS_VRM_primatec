@@ -1,7 +1,9 @@
 package com.primatec.ADAS.services;
 
 import com.primatec.ADAS.DAO.groupDAO;
+import com.primatec.ADAS.DAO.usersDAO;
 import com.primatec.ADAS.model.group;
+import com.primatec.ADAS.model.User.User;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +17,12 @@ public class GroupService {
 
     private final groupDAO groupDAO;
 
+
+
     @Autowired
-    public GroupService(groupDAO groupDAO) {
+    public GroupService(groupDAO groupDAO ) {
         this.groupDAO = groupDAO;
+
     }
 
     public group saveGroup(group group) {
@@ -37,7 +42,7 @@ public class GroupService {
     }
 
     public group updateGroup(group updatedGroup) {
-        Optional<group> optionalGroup = groupDAO.findById(updatedGroup.getGroupId());
+        Optional<group> optionalGroup = groupDAO.findById(updatedGroup.getGroup_id());
         if (optionalGroup.isPresent()) {
             group existingGroup = optionalGroup.get();
             existingGroup.setName(updatedGroup.getName());
@@ -46,10 +51,8 @@ public class GroupService {
 
             return groupDAO.save(existingGroup);
         } else {
-            throw new EntityNotFoundException("Group with id " + updatedGroup.getGroupId() + " not found.");
+            throw new EntityNotFoundException("Group with id " + updatedGroup.getGroup_id() + " not found.");
         }
     }
-
-    // Add additional methods as needed
 
 }

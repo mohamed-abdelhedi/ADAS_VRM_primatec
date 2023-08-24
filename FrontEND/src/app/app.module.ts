@@ -2,44 +2,44 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './login-page/login-page.component';
+import { LoginPageComponent } from './login/login-page/login-page.component';
 import { CustomInputComponent } from './custom-input/custom-input.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
-import { JobStatisticComponent } from './job-statistic/job-statistic.component';
+import { DashboardPageComponent } from './dashboard/dashboard-page/dashboard-page.component';
+import { NavBarComponent } from './mainpage/nav-bar/nav-bar.component';
+import { SideBarComponent } from './mainpage/side-bar/side-bar.component';
+import { JobStatisticComponent } from './dashboard/job-statistic/job-statistic.component';
 import {NgApexchartsModule} from "ng-apexcharts";
-import { EmployeePageComponent } from './employee-page/employee-page.component';
-
+import { EmployeePageComponent } from './employee/employee-page/employee-page.component';
 import { CommonModule } from '@angular/common';
 import {NgxPaginationModule} from "ngx-pagination";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import {MatButtonModule} from "@angular/material/button";
-import { AddEmployeeDialogComponent } from './add-employee-dialog/add-employee-dialog.component';
-import { LoginFirstTimeComponent } from './login-first-time/login-first-time.component';
-
+import { AddEmployeeDialogComponent } from './employee/add-employee-dialog/add-employee-dialog.component';
+import { LoginFirstTimeComponent } from './login/login-first-time/login-first-time.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
-import { TeamPageComponent } from './team-page/team-page.component';
+import { TeamPageComponent } from './team/team-page/team-page.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterOutlet} from "@angular/router";
-import { AddEmployeeNextComponent } from './add-employee-next/add-employee-next.component';
+import { AddEmployeeNextComponent } from './employee/add-employee-next/add-employee-next.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
-import { SkillsDropdownComponent } from './skills-dropdown/skills-dropdown.component';
 import {IgcFormsModule} from "igniteui-angular";
 import {StarRatingModule} from "angular-star-rating";
-import { ProjectPageComponent } from './project-page/project-page.component';
-import { AssignUserJobComponent } from './assign-user-job/assign-user-job.component';
+import { ProjectPageComponent } from './project/project-page/project-page.component';
+import { AssignUserJobComponent } from './project/assign-user-job/assign-user-job.component';
 import {HttpClientModule} from "@angular/common/http";
-import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { AddTeamPageComponent } from './add-team-page/add-team-page.component';
-import { AddProjectPageComponent } from './add-project-page/add-project-page.component';
-import { ApxColumnComponent } from './apx-column/apx-column.component';
-import { ApxLineComponent } from './apx-line/apx-line.component';
+import { ProfilePageComponent } from './Profile/profile-page/profile-page.component';
+import { AddTeamPageComponent } from './team/add-team-page/add-team-page.component';
+import { AddProjectPageComponent } from './project/add-project-page/add-project-page.component';
+import { ApxColumnComponent } from './Profile/apx-column/apx-column.component';
+import { ApxLineComponent } from './Profile/apx-line/apx-line.component';
+import { DepartmentPageComponent } from './department/department-page/department-page.component';
+import { AddDepartmentPageComponent } from './department/add-department-page/add-department-page.component';
+import { GroupPageComponent } from './group/group-page/group-page.component';
+import { AddGroupPageComponent } from './group/add-group-page/add-group-page.component';
 
 
 
@@ -58,7 +58,6 @@ import { ApxLineComponent } from './apx-line/apx-line.component';
     LoginFirstTimeComponent,
     TeamPageComponent,
     AddEmployeeNextComponent,
-    SkillsDropdownComponent,
     ProjectPageComponent,
     AssignUserJobComponent,
     ProfilePageComponent,
@@ -66,6 +65,10 @@ import { ApxLineComponent } from './apx-line/apx-line.component';
     AddProjectPageComponent,
     ApxColumnComponent,
     ApxLineComponent,
+    DepartmentPageComponent,
+    AddDepartmentPageComponent,
+    GroupPageComponent,
+    AddGroupPageComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,0 +1,33 @@
+<div class="add-employee-form">
+
+  <div class="form-container">
+
+    <!-- Employee Selection -->
+    <div class="form-row">
+      <input class="custom_input" type="text" [(ngModel)]="departmentData.name" placeholder="Department Name" step="10"/>
+      <select [(ngModel)]="departmentData.departmentLead" placeholder="Workload" class="custom-select">
+        <option value="null" disabled selected>Select Department Leader</option>
+        <option *ngFor="let user of userinfo" [ngValue]="user.firstname + ' ' + user.lastname">{{ user.firstname + ' ' + user.lastname }}</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <select [(ngModel)]="departmentData.parentDepartment"  placeholder="Select Department Parent" class="custom-select">
+        <option value="0"  selected>Select Department Parent</option>
+        <option *ngFor="let Department of departmentinfo" [value]="Department.name">{{ Department.name }}</option>
+      </select>
+      <div class="custom_input2"></div>
+      <input class="custom_input .custom_input2" type="text" [(ngModel)]="departmentData.location" placeholder="Department Location" step="10"/>
+
+    </div>
+    <!-- Other Selections -->
+  </div>
+
+
+  <!-- Buttons -->
+  <div class="button-container">
+    <button class="clear-button">Clear</button>
+    <button class="add-button" (click)="onSubmit()">Submit</button>
+  </div>
+</div>
+

@@ -7,7 +7,7 @@ import com.primatec.ADAS.DAO.resourceDAO;
 import com.primatec.ADAS.model.project;
 import com.primatec.ADAS.model.resource;
 import com.primatec.ADAS.model.team;
-import com.primatec.ADAS.model.user;
+import com.primatec.ADAS.model.User.User;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,9 +35,9 @@ public class userTeamServices {
         if (optionalTeam.isPresent()) {
             team team = optionalTeam.get();
 
-            Set<user> users = new HashSet<>();
+            Set<User> users = new HashSet<>();
             for (UUID userId : userIds) {
-                Optional<user> optionalUser = userDao.findById(userId);
+                Optional<User> optionalUser = userDao.findById(userId);
                 optionalUser.ifPresent(users::add);
             }
 

@@ -1,0 +1,31 @@
+<div class="add-employee-form">
+
+  <div class="form-container">
+
+    <!-- Employee Selection -->
+    <div class="form-row">
+      <input class="custom_input" type="text" [(ngModel)]="groupData.name" placeholder="Group Name" step="10"/>
+      <select [(ngModel)]="groupData.groupLead" placeholder="Workload" class="custom-select">
+        <option value="0" disabled selected>Select Group Leader</option>
+        <option *ngFor="let user of userinfo" [value]="user.firstname + ' ' + user.lastname">{{ user.firstname + ' ' + user.lastname }}</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <select [(ngModel)]="selectedOption" placeholder="Workload" class="custom-select">
+        <option value="0" disabled selected>Select Department </option>
+        <option *ngFor="let Department of departmentinfo" [value]="Department">{{ Department.name }}</option>
+      </select>
+      <div class="custom_input2"></div>
+      <input class="custom_input .custom_input2" type="text" [(ngModel)]="groupData.domain" placeholder="Group Domain" step="10"/>
+
+    </div>
+  </div>
+
+
+  <!-- Buttons -->
+  <div class="button-container">
+    <button class="clear-button">Clear</button>
+    <button class="add-button" (click)="onSubmit()">Submit</button>
+  </div>
+</div>

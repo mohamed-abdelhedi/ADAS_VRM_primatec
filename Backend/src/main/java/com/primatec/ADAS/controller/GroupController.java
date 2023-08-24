@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -37,11 +38,14 @@ public class GroupController {
 
     @PutMapping("/{id}")
     public group updateGroup(@PathVariable UUID id, @RequestBody group updatedGroup) {
-        if (!id.equals(updatedGroup.getGroupId())) {
+        if (!id.equals(updatedGroup.getGroup_id())) {
             throw new IllegalArgumentException("Group id in path variable does not match the id in the request body.");
         }
 
         return groupService.updateGroup(updatedGroup);
     }
+
+
+
 
 }

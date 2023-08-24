@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+
+.form-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+
+
+}
+
+
+.button-container{
+  display: flex;
+  justify-content: right;
+  margin-top: 50px;
+}
+.clear-button{
+  border-radius: 8px;
+  border: 1px solid #264ECA;
+  background: #fff;
+  width: 140px;
+  padding: 10px;
+  gap: 10px;
+  color: #7A5CFA;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-right: 30px;
+
+}
+.add-button{
+  width: 140px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #264ECA;
+  color: white;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+  line-height: 24px; /* 150% */
+  border: none;
+}
+/* custom-select.css */
+.custom-select {
+  border: 1px solid #E8E8E8; /* Add your desired border style */
+  border-radius: 8px; /* Add border radius */
+  background-color: #fff;
+  width: 450px;
+  color: white;
+
+}
+
+.form-container {
+  /* Your container styles here */
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-bottom: 30px;
+  margin-top: 50px;
+
+
+}
+
+
+.custom-select{
+  border-radius: 8px;
+  border: 1px solid #CCC;
+  width:240px;
+  padding: 16px;
+  color: #666;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+
+}
+
+.custom_input{
+  border-radius: 8px;
+  border: 1px solid #CCC;
+  background: #fff;color: #666;
+  font-family:  'Product Sans', sans-serif;
+  font-size: 16px;
+  padding: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  margin-right: 100px;
+
+}
+
+.text-area{
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #CCC;
+  width: 80%;
+}
+
+.custom-select1{
+  margin-left: 100px;
+
+}
+.custom_input2{
+  margin-left: 100px;
+}

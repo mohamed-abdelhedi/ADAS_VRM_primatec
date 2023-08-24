@@ -1,0 +1,27 @@
+<div class="gradient-container">
+  <div class="centered-container">
+    <img src="../../../assets/primatec%20logo.png" alt="Logo" class="logo">
+  <form (ngSubmit)="onLoginClick()" class="login-form">
+    <div class="input-box-container">
+      <fa-icon [icon]="fauser" class="input-icon"></fa-icon>
+      <input type="text" placeholder="email" name="email" [(ngModel)]="loginData.email" class="transparent-input">
+    </div>
+    <div class="input-box-container">
+      <fa-icon [icon]="falock" class="input-icon"></fa-icon>
+      <input type="password" placeholder="password" name="password" [(ngModel)]="loginData.password"  class="transparent-input">
+    </div>
+    <button type="submit" class="btn">Login</button>
+  </form>
+  </div>
+    <div class="decoration-container">
+      <svg xmlns="http://www.w3.org/2000/svg" width="859" height="720" viewBox="0 0 859 720" fill="none">
+        <path d="M257 139C121.4 151.8 29.1667 51.0001 0 -0.999939L864 2.50006V720.5H767.5C468.7 682.5 519 531 581.5 460C618 410.167 684 290.1 656 208.5C621 106.5 426.5 123 257 139Z" fill="#264ECA"/>
+      </svg>
+    </div>
+    <div class="decoration-container2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="738" height="479" viewBox="0 0 738 479" fill="none">
+        <path d="M468.356 528.998C602.034 502.896 703.753 594.115 737.903 642.987L-122.236 724.658L-193 10.1537L-96.97 0.642879C204.12 9.0089 168.997 164.729 113.799 241.543C82.3879 294.731 28.5426 420.718 64.4486 499.161C109.331 597.215 301.258 561.626 468.356 528.998Z" fill="#264ECA"/>
+      </svg>
+    </div>
+
+</div>

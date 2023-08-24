@@ -1,9 +1,8 @@
 package com.primatec.ADAS.model.workload;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.primatec.ADAS.model.project;
-import com.primatec.ADAS.model.user;
+import com.primatec.ADAS.model.User.User;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -46,7 +45,7 @@ public class Workload {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-   private user assignedUser;
+   private User assignedUser;
 
     @ManyToMany
     @JoinTable(

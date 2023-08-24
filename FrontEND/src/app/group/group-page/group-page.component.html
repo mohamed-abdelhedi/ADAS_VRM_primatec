@@ -1,0 +1,30 @@
+<div class="button-container">
+
+  <button class="custom-button btn"  (click)="navigateToAddGroup()" >Add Group</button>
+
+  <!-- Your employee list here... -->
+</div>
+<div class="employee-list">
+  <table>
+    <thead>
+    <tr>
+      <th >Name</th>
+      <th >Domain</th>
+      <th>Department</th>
+      <th>Leader</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let group of Groupinfo  | paginate: { itemsPerPage: 10, currentPage: p }">
+
+      <td><p class="employee-name" >{{ group.name }}</p></td>
+      <td>{{ group.domain }}</td>
+      <td>{{ group.department }}</td>
+      <td>{{ group.groupLead }}</td>
+
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+</div>

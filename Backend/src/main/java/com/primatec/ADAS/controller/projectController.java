@@ -1,19 +1,23 @@
 package com.primatec.ADAS.controller;
 import com.primatec.ADAS.model.project;
-import com.primatec.ADAS.model.user;
+import com.primatec.ADAS.model.User.User;
 import com.primatec.ADAS.services.projectServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+import static com.primatec.ADAS.model.User.Role.USER;
+
 @RequestMapping("api/projects")
 @RestController
 @CrossOrigin
 public class projectController {
     private projectServices projectService;
+
 
     @Autowired
     public projectController(projectServices projectService) {
@@ -24,7 +28,6 @@ public class projectController {
     public void addProject(@RequestBody project project) {
         projectService.saveProject(project);
     }
-
     @GetMapping("/all")
     public List<project> getAllProjects() {
         return projectService.getAllProjects();
@@ -45,8 +48,13 @@ public class projectController {
         return projectService.updateProject(updatedProject);
     }
     @GetMapping("/{id}/users")
-    public Set<user> getAllProjectUsers(@PathVariable UUID id) {
+    public Set<User> getAllProjectUsers(@PathVariable UUID id) {
         return projectService.getAllProjectUsers(id);
     }
 
+
+    /*@GetMapping("/projects/{userid}")
+    public List<project> getProjectIdsByUserId(@PathVariable UUID userid) {
+        return projectService.getProjectIdsByUserId(userid);
+    }*/
 }

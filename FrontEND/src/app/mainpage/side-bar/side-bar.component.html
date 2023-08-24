@@ -1,0 +1,93 @@
+<div class="sidebar">
+
+  <div class="user-info">
+    <img src="/assets/userImg.png" alt="User Image" class="user-image">
+    <div class="user-details">
+      <p class="user-name">Gavanoo</p>
+      <p class="user-job">HR Manager</p>
+    </div>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul>
+    <li>
+      <div  (click)="onNavItemClicked(1)"
+            [ngClass]="{ 'custom-li': true, 'active-item': activeNavItem === 1 }">
+        <div  [ngClass]="{  'selected': activeNavItem === 1 }"></div>
+        <fa-icon [icon]=faDashboard [ngClass]="{ 'nav-icon':true,'nav-icon-active': activeNavItem === 1}"></fa-icon>
+        <span  [ngClass]="{ 'nav-title':true,'custom-title': activeNavItem === 1 }" >Dashboard</span>
+      </div>
+    </li>
+
+
+    <li >
+      <div (click)="onNavItemClicked(2)"
+           [ngClass]="{ 'custom-li': true, 'active-item': activeNavItem === 2 }">
+        <div  [ngClass]="{  'selected': activeNavItem === 2 }"></div>
+        <fa-icon [icon]=faAddressCard [ngClass]="{ 'nav-icon':true,'nav-icon-active': activeNavItem === 2}"></fa-icon>
+        <span [ngClass]="{ 'nav-title':true,'custom-title': activeNavItem === 2 }">Employee</span>
+      </div>
+    </li>
+
+
+    <li >
+      <div (click)="onNavItemClicked(3)"
+           [ngClass]="{ 'custom-li': true, 'active-item': activeNavItem === 3 }">
+        <div  [ngClass]="{  'selected': activeNavItem === 3 }"></div>
+        <fa-icon [icon]=faUsers [ngClass]="{ 'nav-icon':true,'nav-icon-active': activeNavItem === 3}"></fa-icon>
+        <span [ngClass]="{ 'nav-title':true,'custom-title': activeNavItem === 3 }">Teams</span>
+      </div>
+    </li>
+
+    <li >
+      <div (click)="onNavItemClicked(4)"
+           [ngClass]="{ 'custom-li': true, 'active-item': activeNavItem === 4 }">
+        <div  [ngClass]="{  'selected': activeNavItem === 4 }"></div>
+        <fa-icon [icon]=faBuilding [ngClass]="{ 'nav-icon':true,'nav-icon-active': activeNavItem === 4}"></fa-icon>
+        <span [ngClass]="{ 'nav-title':true,'custom-title': activeNavItem === 4}">Department</span>
+      </div>
+    </li>
+    <li >
+      <div (click)="onNavItemClicked(5)"
+           [ngClass]="{ 'custom-li': true, 'active-item': activeNavItem === 5 }">
+        <div  [ngClass]="{  'selected': activeNavItem === 5 }"></div>
+        <fa-icon [icon]=faPeopleGroup [ngClass]="{ 'nav-icon':true,'nav-icon-active': activeNavItem === 5}"></fa-icon>
+        <span [ngClass]="{ 'nav-title':true,'custom-title': activeNavItem === 5}">Groups</span>
+      </div>
+    </li>
+
+    <li >
+      <div (click)="onNavItemClicked(6)"
+           [ngClass]="{ 'custom-li': true, 'active-item': activeNavItem === 6 }">
+        <div  [ngClass]="{  'selected': activeNavItem === 6 }"></div>
+        <fa-icon [icon]=faLaptop [ngClass]="{ 'nav-icon':true,'nav-icon-active': activeNavItem === 6}"></fa-icon>
+        <span [ngClass]="{ 'nav-title':true,'custom-title': activeNavItem === 6 }">Job</span>
+      </div>
+    </li>
+
+
+
+    <li>
+      <div (click)="onNavItemClicked(7)"
+           [ngClass]="{ 'custom-li': true, 'active-item': activeNavItem === 7 }">
+        <div  [ngClass]="{  'selected': activeNavItem === 7 }"></div>
+        <fa-icon [icon]=faUser [ngClass]="{ 'nav-icon':true,'nav-icon-active': activeNavItem === 7}"></fa-icon>
+        <span [ngClass]="{ 'nav-title':true,'custom-title': activeNavItem === 7}">Profile</span>
+      </div>
+    </li>
+
+
+    <li >
+      <div (click)="onNavItemClicked(8)"
+           [ngClass]="{ 'custom-li': true, 'active-item': activeNavItem === 8 }">
+        <div  [ngClass]="{  'selected': activeNavItem === 8 }"></div>
+        <fa-icon [icon]=faGear [ngClass]="{ 'nav-icon':true,'nav-icon-active': activeNavItem === 8}"></fa-icon>
+        <span [ngClass]="{ 'nav-title':true,'custom-title': activeNavItem === 8}">Settings</span>
+      </div>
+    </li>
+
+
+  </ul>
+
+</div>
+

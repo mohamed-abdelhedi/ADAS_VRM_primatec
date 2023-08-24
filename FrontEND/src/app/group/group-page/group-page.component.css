@@ -1,0 +1,111 @@
+@import url('https://fonts.cdnfonts.com/css/product-sans');
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-right: 80px;
+
+}
+.custom-button{
+  border-radius: 12px;
+  background: #264ECA;
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 198px;
+  height: 47px;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: Product Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.2px;
+
+}
+.employee-list{
+  border-radius: 6px;
+  border: 1.812px solid #ECEEF6;
+  background: #FFF;
+  padding: 10px;
+}
+
+.employee-list table {
+  width: 100%;
+  border-collapse: collapse;
+  height: 20px;
+
+}
+
+.employee-list th {
+  border: none;
+
+  padding: 8px;
+  text-align: left;
+  color: #949494;
+  font-family: "Product Sans";
+  font-size: 14.495px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.145px;
+}
+.employee-list td{
+  color: #000;
+  font-family: Product Sans;
+  font-size: 14.495px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.img{
+  border-radius: 31.709px;
+  box-shadow: 0px 3.6238512992858887px 7.247702598571777px 0px rgba(0, 0, 0, 0.10);
+  width: 31.709px;
+  height: 31.709px;
+  flex-shrink: 0;
+}
+.employee-info {
+  display: flex;
+  align-items: center;
+}
+.employee-image {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+.employee-name {
+  font-weight: bold;
+  margin: 0;
+}
+.online-status{
+  border-radius: 4px;
+  background: rgba(22, 192, 152, 0.20);
+  display: flex;
+  width: 87px;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.offline-status{
+  border-radius: 4px;
+  background: rgba(175, 175, 175, 0.20);
+  display: flex;
+  width: 87px;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+th, td {
+  padding: 10px;
+}
+
+
+

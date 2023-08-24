@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {EmployeePageComponent} from "./employee-page/employee-page.component";
+import {EmployeePageComponent} from "./employee/employee-page/employee-page.component";
 import {DASH} from "@angular/cdk/keycodes";
-import {DashboardPageComponent} from "./dashboard-page/dashboard-page.component";
-import {TeamPageComponent} from "./team-page/team-page.component";
-import {AddEmployeeDialogComponent} from "./add-employee-dialog/add-employee-dialog.component";
-import {AddEmployeeNextComponent} from "./add-employee-next/add-employee-next.component";
-import {ProjectPageComponent} from "./project-page/project-page.component";
-import {AssignUserJobComponent} from "./assign-user-job/assign-user-job.component";
-import {ProfilePageComponent} from "./profile-page/profile-page.component";
-import {AddTeamPageComponent} from "./add-team-page/add-team-page.component";
-import {AddProjectPageComponent} from "./add-project-page/add-project-page.component";
+import {DashboardPageComponent} from "./dashboard/dashboard-page/dashboard-page.component";
+import {TeamPageComponent} from "./team/team-page/team-page.component";
+import {AddEmployeeDialogComponent} from "./employee/add-employee-dialog/add-employee-dialog.component";
+import {AddEmployeeNextComponent} from "./employee/add-employee-next/add-employee-next.component";
+import {ProjectPageComponent} from "./project/project-page/project-page.component";
+import {AssignUserJobComponent} from "./project/assign-user-job/assign-user-job.component";
+import {ProfilePageComponent} from "./Profile/profile-page/profile-page.component";
+import {AddTeamPageComponent} from "./team/add-team-page/add-team-page.component";
+import {AddProjectPageComponent} from "./project/add-project-page/add-project-page.component";
+import {DepartmentPageComponent} from "./department/department-page/department-page.component";
+import {GroupPageComponent} from "./group/group-page/group-page.component";
+import {AddDepartmentPageComponent} from "./department/add-department-page/add-department-page.component";
+import {AddGroupPageComponent} from "./group/add-group-page/add-group-page.component";
+import {LoginPageComponent} from "./login/login-page/login-page.component";
 
 
 const routes: Routes = [
@@ -22,10 +27,15 @@ const routes: Routes = [
   { path: 'employee/add-employee', component: AddEmployeeDialogComponent },
   { path: 'employee/add-employee-next', component: AddEmployeeNextComponent },
   { path: 'project', component: ProjectPageComponent },
+  { path: 'project/add_project', component: AddProjectPageComponent },
   { path: 'assign-user-project', component: AssignUserJobComponent },
   { path: 'profile', component: ProfilePageComponent },
   { path: 'team/add-team', component: AddTeamPageComponent },
-  { path: 'project/add-project', component: AddProjectPageComponent },
+  { path: 'department', component: DepartmentPageComponent },
+  { path: 'group', component: GroupPageComponent },
+  { path: 'department/add-department', component: AddDepartmentPageComponent },
+  { path: 'group/add-group', component: AddGroupPageComponent },
+  { path: 'login', component: LoginPageComponent },
 ];
 @NgModule({
   declarations: [],

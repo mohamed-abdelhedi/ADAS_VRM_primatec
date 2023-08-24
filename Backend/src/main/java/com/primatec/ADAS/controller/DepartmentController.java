@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 @RestController
@@ -24,7 +26,7 @@ public class DepartmentController {
     public Department addDepartment(@RequestBody Department department) {
         return departmentService.saveDepartment(department);
     }
-
+    @CrossOrigin
     @GetMapping("/all")
     public List<Department> getAllDepartments() {
         return departmentService.getAllDepartments();
@@ -37,12 +39,13 @@ public class DepartmentController {
 
     @PutMapping("/{id}")
     public Department updateDepartment(@PathVariable UUID id, @RequestBody Department updatedDepartment) {
-        if (!id.equals(updatedDepartment.getDepartmentId())) {
+        if (!id.equals(updatedDepartment.getDepartment_id())) {
             throw new IllegalArgumentException("Department id in path variable does not match the id in the request body.");
         }
 
         return departmentService.updateDepartment(updatedDepartment);
     }
+
 
     // Add additional mappings as needed
 

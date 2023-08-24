@@ -1,0 +1,38 @@
+
+<div class="add-employee-form">
+  <div class="form-header">
+    <div class="image-container">
+        <div class="circle">
+          <fa-icon [icon]="faCamera" class="icon"></fa-icon>
+        </div>
+    </div>
+  <div class="form-row">
+    <div class="input-container">
+      <input type="text" placeholder="firstname"  [(ngModel)]="employeeData.firstname" class="transparent-input">
+    </div>
+    <div class="input-container">
+      <input type="text" placeholder="lastname"  [(ngModel)]="employeeData.lastname" class="transparent-input">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="input-container">
+      <input type="email" placeholder="Email" [(ngModel)]="employeeData.email" class="transparent-input">
+    </div>
+    <div class="input-container">
+      <input type="text" placeholder="Username"  [(ngModel)]="employeeData.username" class="transparent-input">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="input-container">
+      <input type="date" placeholder="Birthdate"  [(ngModel)]="employeeData.birthdate" class="transparent-input">
+    </div>
+    <div class="input-container">
+      <input type="tel" placeholder="Phone Number"  [(ngModel)]="employeeData.phone_number" class="transparent-input">
+    </div>
+  </div>
+    <div class="button-container">
+      <button class="clear-button">Clear</button>
+      <button (click)="onSubmit()" class="add-button">Submit</button>
+    </div>
+
+</div></div>

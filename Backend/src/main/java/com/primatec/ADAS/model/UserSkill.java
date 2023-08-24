@@ -1,73 +1,49 @@
 package com.primatec.ADAS.model;
 
+import com.primatec.ADAS.model.User.User;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
-@Entity
-@Table(name = "user_skill")
-public class UserSkill {
 
-    @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "user_skill_id", columnDefinition = "VARCHAR(40)")
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private UUID user_skill_id;
+    @Entity
+    @Table(name = "user_skill")
+    public class UserSkill {
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private user user;
+        @Id
+        @GeneratedValue(generator = "uuid2")
+        @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+        @Column(name = "user_skill_id", columnDefinition = "VARCHAR(40)")
+        @JdbcTypeCode(SqlTypes.VARCHAR)
 
-    @ManyToOne
-    @JoinColumn(name = "skill_id")
-    private skill skill;
+        private UUID user_skill_id;
+        @ManyToOne
+        @JoinColumn(name = "user_id")
+        private User user;
 
-    private int proficiency; // Entity-level attribute
 
-    public UserSkill() {
+        @ManyToOne
+        @JoinColumn(name = "skill_id")
+        private skill skill;
+
+
+        @Column(name = "date")
+        private LocalDate date;
+
+        private int proficiency;
+
+        public UserSkill() {
+        }
+
+        public UserSkill(User user, skill skill, LocalDate date, int proficiency) {
+            this.user = user;
+            this.skill = skill;
+            this.date = date;
+            this.proficiency = proficiency;
+        }
     }
 
-    public UserSkill(user user, skill skill, int proficiency) {
-        this.user = user;
-        this.skill = skill;
-        this.proficiency = proficiency;
-    }
-
-    // Getter and Setter methods
-
-    public UUID getId() {
-        return user_skill_id;
-    }
-
-    public void setId(UUID id) {
-        this.user_skill_id = id;
-    }
-
-    public user getUser() {
-        return user;
-    }
-
-    public void setUser(user user) {
-        this.user = user;
-    }
-
-    public skill getSkill() {
-        return skill;
-    }
-
-    public void setSkill(skill skill) {
-        this.skill = skill;
-    }
-
-    public int getProficiency() {
-        return proficiency;
-    }
-
-    public void setProficiency(int proficiency) {
-        this.proficiency = proficiency;
-    }
-}

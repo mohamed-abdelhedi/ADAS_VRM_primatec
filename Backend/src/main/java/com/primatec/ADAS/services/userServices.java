@@ -1,7 +1,7 @@
 package com.primatec.ADAS.services;
 
 import com.primatec.ADAS.DAO.usersDAO;
-import com.primatec.ADAS.model.user;
+import com.primatec.ADAS.model.User.User;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,30 +19,30 @@ public class userServices {
     public userServices(usersDAO userDao) {
         this.userDao = userDao;
     }
-    public void saveUser(user user) {
+    public void saveUser(User user) {
         userDao.save(user);
     }
 
-    public List<user> getAllUsers() {
+    public List<User> getAllUsers() {
         return userDao.findAll();
     }
 
-    public Optional<user> getUserById(UUID id) {
+    public Optional<User> getUserById(UUID id) {
         return userDao.findById(id);
     }
     public void deleteUser(UUID id) {
         userDao.deleteById(id);
     }
-    public user updateUser(user updatedUser) {
+    public User updateUser(User updatedUser) {
         // Check if the user exists in the database
-        Optional<user> optionalUser = userDao.findById(updatedUser.getUser_id());
+        Optional<User> optionalUser = userDao.findById(updatedUser.getUser_id());
         if (optionalUser.isPresent()) {
             // Update the existing user with the new data
-            user existingUser = optionalUser.get();
-            existingUser.setName(updatedUser.getName());
+            User existingUser = optionalUser.get();
+            existingUser.setFirstname(updatedUser.getFirstname());
+            existingUser.setLastname(updatedUser.getLastname());
             existingUser.setBirthdate(updatedUser.getBirthdate());
             existingUser.setExperience(updatedUser.getExperience());
-            existingUser.setUsername(updatedUser.getUsername());
             existingUser.setJoinDate(updatedUser.getJoinDate());
             existingUser.setEmail(updatedUser.getEmail());
             existingUser.setDescription(updatedUser.getDescription());
@@ -56,4 +56,6 @@ public class userServices {
             throw new EntityNotFoundException("User with id " + updatedUser.getUser_id() + " not found.");
         }
     }
+
+
 }
