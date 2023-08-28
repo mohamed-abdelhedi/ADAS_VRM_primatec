@@ -46,17 +46,11 @@ public class User implements UserDetails {
     private Role role;
 
     private String phone_number;
-
-
-
     @ManyToMany(mappedBy = "users")
-    @JsonIgnore
     private Set<team> teams = new HashSet<>();
-
 
     @OneToMany(mappedBy = "user")
     private Set<UserSkill> userSkills = new HashSet<>();
-
 
     @ManyToMany
     @JoinTable(

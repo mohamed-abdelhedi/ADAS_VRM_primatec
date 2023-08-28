@@ -1,61 +1,56 @@
 <div class="add-employee-form">
 
-    <div class="form-container">
+  <div class="form-container">
 
-      <!-- Employee Selection -->
-      <div class="form-row">
-        <select [(ngModel)]="selectedOption" placeholder="Workload" class="custom-select">
-          <option value="0" disabled selected>Select Employee</option>
-          <option *ngFor="let user of users" [value]="user">{{ user }}</option>
-        </select>
-        <input class="custom_input" type="number" min="0" max="100" placeholder="Workload" step="10" />
-      </div>
+    <!-- Employee Selection -->
+    <div class="form-row">
+      <input class="custom_input_first" [(ngModel)]="WorkloadData.name" placeholder="Workload Name" type="text">
+      <input class="custom_input" [(ngModel)]="WorkloadData.percentage"  type="number" min="0" max="100" placeholder="Workload" step="10"/>
+    </div>
 
 
-      <!-- Other Selections -->
-      <div class="form-row">
-        <select [(ngModel)]="selectedOption" class="custom-select">
-          <option value="0" disabled selected>Select Team</option>
-          <option *ngFor="let user of users" [value]="user">{{ user }}</option>
-        </select>
-        <input class="textbox-n custom_input"
-               placeholder="Start Date"
-               type="text"
-               onfocus="(this.type='date')"
-               id="date">
-      </div>
+    <!-- Other Selections -->
+    <div class="form-row">
+      <mat-form-field class="custom-select1">
+        <mat-label>Select your skills</mat-label>
+        <mat-select  multiple (selectionChange)="onToppingsSelectionChange($event)" >
+          <mat-option *ngFor="let skills of SkillsInfo" [value]="skills.skill_id">{{ skills.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <input class="textbox-n custom_input"
+             placeholder="Start Date"
+             [(ngModel)]="WorkloadData.startDate"
+             type="text"
+             onfocus="(this.type='date')"
+             id="date">
+      <input class="textbox-n custom_input"
+             [(ngModel)]="WorkloadData.deadLine"
+             placeholder="Deadline"
+             type="text"
+             onfocus="(this.type='date')"
+      >
+    </div>
 
-      <div class="form-row">
-        <select [(ngModel)]="selectedOption"  class="custom-select">
-          <option value="0" disabled selected>Select Group</option>
-          <option *ngFor="let user of users" [value]="user">{{ user }}</option>
-        </select>
-        <input class="textbox-n custom_input"
-               placeholder="Deadline"
-               type="text"
-               onfocus="(this.type='date')"
-               >
-      </div>
-      <div class="form-row">
-      <select [(ngModel)]="selectedOption"  class="custom-select">
-        <option value="0" disabled selected>Select Department</option>
-        <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+    <div class="form-row">
+      <select [(ngModel)]="selectedOption"  class="custom-select custom-select2">
+        <option value="0" disabled selected>Select Employee</option>
+        <option class="option" *ngFor="let user of userinfo2; let i = index" [value]="user.user_id">{{ user.firstname +' '+ user.lastname +' ==> ' + finalresults[user.user_id] }}</option>
       </select>
 
-
-      </div>
-      <textarea class="text-area"
-                [(ngModel)]="text"
-                (input)="countWords()"
-                placeholder="Description"
-      ></textarea>
     </div>
+    <textarea class="text-area"
+              [(ngModel)]="WorkloadData.description"
+              [(ngModel)]="text"
+              (input)="countWords()"
+              placeholder="Description"
+    ></textarea>
+  </div>
 
 
   <!-- Buttons -->
   <div class="button-container">
     <button class="clear-button">Clear</button>
-    <button class="add-button">Submit</button>
+    <button class="add-button" (click)="onSubmit()">Submit</button>
   </div>
 </div>
 

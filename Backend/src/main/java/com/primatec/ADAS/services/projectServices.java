@@ -24,8 +24,9 @@ public class projectServices {
         this.teamDAO=teamDAO;
     }
 
-    public void saveProject(project project) {
+    public project saveProject(project project) {
         projectDao.save(project);
+        return project;
     }
 
     public List<project> getAllProjects() {

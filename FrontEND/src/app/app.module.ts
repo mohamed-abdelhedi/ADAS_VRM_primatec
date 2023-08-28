@@ -23,7 +23,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { TeamPageComponent } from './team/team-page/team-page.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterOutlet} from "@angular/router";
-import { AddEmployeeNextComponent } from './employee/add-employee-next/add-employee-next.component';
+import { AddEmployeeNextComponent } from './Profile/add-employee-next/add-employee-next.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {IgcFormsModule} from "igniteui-angular";
@@ -40,6 +40,11 @@ import { DepartmentPageComponent } from './department/department-page/department
 import { AddDepartmentPageComponent } from './department/add-department-page/add-department-page.component';
 import { GroupPageComponent } from './group/group-page/group-page.component';
 import { AddGroupPageComponent } from './group/add-group-page/add-group-page.component';
+import { SettingsPageComponent } from './settings-page/settings-page.component';
+import {CdkMenu} from "@angular/cdk/menu";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatIconModule} from "@angular/material/icon";
+import { WorkloadPageComponent } from './project/workload-page/workload-page.component';
 
 
 
@@ -69,6 +74,8 @@ import { AddGroupPageComponent } from './group/add-group-page/add-group-page.com
     AddDepartmentPageComponent,
     GroupPageComponent,
     AddGroupPageComponent,
+    SettingsPageComponent,
+    WorkloadPageComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -90,7 +97,10 @@ import { AddGroupPageComponent } from './group/add-group-page/add-group-page.com
     ReactiveFormsModule,
     IgcFormsModule,
     StarRatingModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    CdkMenu,
+    MatMenuModule,
+    MatIconModule
 
   ],
   providers: [],

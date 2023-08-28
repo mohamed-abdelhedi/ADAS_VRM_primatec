@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {MyApiService} from "../../services/APIs/my-api.service";
 import jwt_decode from 'jwt-decode';
-import {AuthServicesService} from "../../services/authentication/auth-services.service";
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'profile-page',
   templateUrl: './profile-page.component.html',
@@ -10,32 +11,79 @@ import {AuthServicesService} from "../../services/authentication/auth-services.s
 export class ProfilePageComponent {
   userProfile: any;
   // @ts-ignore
-  token:string = localStorage.getItem('access_token');
+  token: string = localStorage.getItem('access_token');
   headers = {"Authorization": "Bearer " + this.token};
-  constructor(private myApiService: MyApiService, private AuthServicesService:AuthServicesService) { }
+  private userId: any;
+
+  constructor(private myApiService: MyApiService, private router: Router) {
+  }
 
   getDecodedAccessToken(token: string): any {
     try {
       return jwt_decode(token);
-    } catch(Error) {
+    } catch (Error) {
       return null;
     }
   }
+
   ngOnInit() {
     const tokenInfo = this.getDecodedAccessToken(this.token);
-    console.log("token-info",tokenInfo);
+    this.userId = tokenInfo.user_id;
+    this.addLastProficiency();
+    localStorage.setItem('user_id', this.userId);
 
-    const userId = tokenInfo.user_id;
 
-    this.myApiService.getUserProfile(userId).subscribe(
+    this.myApiService.getUserProfile(this.userId).subscribe(
       (response) => {
         this.userProfile = response;
         console.log(response);
       },
-
     );
-    console.log(this.userProfile);
+
+  }
+
+  navigateToAddSkills() {
+    console.log('Navigating to Add Employee');
+    // Use the router to navigate to the "add-employee" page
+    this.router.navigateByUrl('employee/add-employee-next');
   }
 
 
-}
+  isFirstDayOfMonth(date: Date): boolean {
+    const currentDate = new Date();
+
+    return currentDate.getFullYear() === date.getFullYear() &&
+      currentDate.getMonth() === date.getMonth() &&
+      currentDate.getDate() === 1;
+  }
+
+  addLastProficiency() {
+    const today = new Date();
+    if (this.isFirstDayOfMonth(today)) {
+      this.myApiService.getalluserSKILLS(this.userId).subscribe(skillDataList => {
+        console.log(skillDataList);
+
+        for (const skillData of skillDataList) {
+          this.myApiService.getUserSkillForPreviousMonth(skillData, this.userId).subscribe(userSkill => {
+            console.log("userSkill", userSkill);
+
+
+            const newUserSkill = {
+              userId: this.userId,
+              skillId: skillData,
+              date: "2023-08-10", // Get current date in "YYYY-MM-DD" format
+              // @ts-ignore
+              proficiency: userSkill.proficiency
+            };
+            console.log("updatedUserSkill", newUserSkill);
+
+            this.myApiService.adduserSkills(this.userId, [newUserSkill]).subscribe(result => {
+              console.log(result);
+            });
+          });
+        }
+      });
+    } else {
+      console.log("NOOOOOO");
+    }
+}}

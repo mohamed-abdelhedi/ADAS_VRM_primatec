@@ -12,6 +12,8 @@ import {
   ApexTitleSubtitle,
   ApexLegend
 } from "ng-apexcharts";
+import {Router} from "@angular/router";
+import {MyApiService} from "../../services/APIs/my-api.service";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -33,23 +35,26 @@ export type ChartOptions = {
 })
 export class ApxLineComponent {
   @ViewChild("chart") chart!: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
-
-  constructor() {
+  public chartOptions: Partial<ChartOptions> = {};
+  transformedData: any[] = [];
+  userskills: string[] = [];
+  // @ts-ignore
+  user: string = localStorage.getItem('user_id');
+  constructor(private router: Router, private myApiService: MyApiService) {
 
     this.chartOptions = {
       series: [
         {
           name: "Session Duration",
-          data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+          data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10,11]
         },
         {
           name: "Page Views",
-          data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
+          data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35,14]
         },
         {
           name: "Total Visits",
-          data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
+          data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47,15]
         }
       ],
       chart: {
@@ -65,7 +70,7 @@ export class ApxLineComponent {
         dashArray: [0, 8, 5]
       },
       title: {
-        text: "Page Statistics",
+        text: "Employee Skills Statistic",
         align: "left"
       },
       legend: {
@@ -89,18 +94,19 @@ export class ApxLineComponent {
           trim: false
         },
         categories: [
-          "01 Jan",
-          "02 Jan",
-          "03 Jan",
-          "04 Jan",
-          "05 Jan",
-          "06 Jan",
-          "07 Jan",
-          "08 Jan",
-          "09 Jan",
-          "10 Jan",
-          "11 Jan",
-          "12 Jan"
+          "Jan",
+          "Fev",
+          "Mars",
+          "Apr",
+          "May",
+          "Jun",
+          "July",
+          "Aug",
+          "Sept",
+          "Oct",
+          "Nov",
+          "Dec",
+          "jan"
         ]
       },
       tooltip: {
@@ -132,5 +138,58 @@ export class ApxLineComponent {
         borderColor: "#f1f1f1"
       }
     };
+  }
+
+  ngOnInit() {
+    this.getalluserSkills();
+  }
+
+  getalluserSkills() {
+    this.myApiService.getalluserSKILLS(this.user).subscribe(data => {
+      this.userskills = Array.from(new Set(data));
+      this.getalldata();
+    });
+  }
+
+  getGraph(userId: string, skillid: string) {
+    return this.myApiService.getGraph(userId, skillid);
+  }
+
+  getSkillName(skill: string) {
+    return this.myApiService.getSkillbyid(skill);
+  }
+
+  getalldata() {
+    const fetchingPromises: Promise<any>[] = [];
+
+    this.userskills.forEach(skill => {
+      const fetchPromise = this.getGraph(this.user, skill).toPromise();
+
+      fetchingPromises.push(fetchPromise);
+    });
+
+    Promise.all(fetchingPromises).then(graphDataArray => {
+      const transformedSeries: any[] = [];
+
+      this.userskills.forEach((skill, index) => {
+        const graphData = graphDataArray[index];
+        this.getSkillName(skill).subscribe(name => {
+          // @ts-ignore
+          const data = graphData.map(entry => entry[1]);
+          transformedSeries.push({ name: name.name, data: data });
+
+          if (transformedSeries.length === this.userskills.length) {
+            this.transformedData = transformedSeries;
+            this.updateChartSeries();
+          }
+        });
+      });
+    });
+  }
+
+  updateChartSeries() {
+    this.chartOptions.series = this.transformedData;
+    // Manually update the chart series, if needed, depending on the chart library
+    // this.chart.updateSeries(this.transformedData);
   }
 }

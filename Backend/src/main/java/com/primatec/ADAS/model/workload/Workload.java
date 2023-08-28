@@ -3,7 +3,12 @@ package com.primatec.ADAS.model.workload;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.primatec.ADAS.model.project;
 import com.primatec.ADAS.model.User.User;
+import com.primatec.ADAS.model.skill;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
@@ -14,15 +19,17 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Table(name = "workload")
 public class Workload {
 
     @Id
     @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "workload_id", columnDefinition = "VARCHAR(40)")
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    @JsonIgnore
     private UUID workloadId;
 
     @Column(name = "name")
@@ -34,6 +41,7 @@ public class Workload {
     @Temporal(TemporalType.DATE)
     @Column(name = "start_date")
     private Date startDate;
+    private Date deadLine;
 
     @Column(name = "workload_state")
     private workloadResult workloadState;
@@ -55,66 +63,9 @@ public class Workload {
     )
     private Set<project> projects = new HashSet<>();
 
-    // Constructors, getters, setters, and other methods...
+    @ManyToMany
+    private Set<skill> skills = new HashSet<>();
 
-    public UUID getWorkloadId() {
-        return workloadId;
-    }
-
-    public void setWorkloadId(UUID workloadId) {
-        this.workloadId = workloadId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDomain() {
-        return domain;
-    }
-
-    public void setDomain(String domain) {
-        this.domain = domain;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public workloadResult getWorkloadState() {
-        return workloadState;
-    }
-
-    public void setWorkloadState(workloadResult workloadState) {
-        this.workloadState = workloadState;
-    }
-
-    public double getPercentage() {
-        return percentage;
-    }
-
-    public void setPercentage(double percentage) {
-        this.percentage = percentage;
-    }
-
-
-
-
-    public Set<project> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(Set<project> projects) {
-        this.projects = projects;
-    }
 }
 
 

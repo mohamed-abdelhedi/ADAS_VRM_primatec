@@ -1,4 +1,7 @@
 package com.primatec.ADAS.controller;
+import com.primatec.ADAS.model.UserSkill;
+import com.primatec.ADAS.model.resource;
+import com.primatec.ADAS.services.SkillService;
 import com.primatec.ADAS.services.userTeamServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +30,13 @@ public class userTeamController {
         Set<UUID> resourceIds = request.get("resourceIds");
         userTeamServices.assignResourcesToTeam(teamId, resourceIds);
     }
-
+    @CrossOrigin
     @PutMapping("/{teamId}/assign-projects")
     public void assignProjectsToTeam(@PathVariable UUID teamId, @RequestBody Map<String, Set<UUID>> request ) {
         Set<UUID> projectIds= request.get("projectIds");
         userTeamServices.assignProjectsToTeam(teamId, projectIds);
     }
+
 
 }
 

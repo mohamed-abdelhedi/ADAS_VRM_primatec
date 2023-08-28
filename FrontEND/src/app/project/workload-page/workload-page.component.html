@@ -1,0 +1,31 @@
+<div class="project-page">
+  <h2 class="title">Total Workload</h2>
+  <div class="custom-box">
+    <div class="project-box"  *ngFor="let workload of workloadInfo">
+      <div class="custom-row">
+        <div class="assigned-team"><b>{{ workload.name }}</b></div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="custom-btn" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="vertebrates">Mark as</button>
+          <button mat-menu-item>
+            <span>Delete Workload</span>
+          </button>
+
+        </mat-menu>
+        <mat-menu #vertebrates="matMenu">
+          <button mat-menu-item (click)="Inprogress(this.workload.workloadId)">In Progress</button>
+          <button mat-menu-item (click)="Done(this.workload.workloadId)">Done</button>
+          <button mat-menu-item (click)="FAILED(this.workload.workloadId)" >Failed</button>
+        </mat-menu>
+      </div>
+      <div class="assigned-team"> <b>User : </b>{{ workload.assignedUser.firstname+ ' ' +  workload.assignedUser.lastname}}</div>
+      <div class="assigned-team">  <b>Percentage : </b>{{ workload.percentage + '%' }}</div>
+        <div class="assigned-team"><b> Description : </b>{{ workload.description }}</div>
+      <div class="assigned-team"><b>Start-date : </b>{{ workload.startDate | date }}</div>
+      <div class="assigned-team"><b>DeadLine : </b>{{ workload.deadLine | date }}</div>
+      <div [class]="'project-status ' + getStatusClass(workload.workloadState)">{{ workload.workloadState}}</div>
+    </div>
+  </div>
+</div>

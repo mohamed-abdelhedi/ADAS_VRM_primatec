@@ -1,12 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Router} from "@angular/router";
 import {MyApiService} from "../../services/APIs/my-api.service";
-interface Project {
-  title: string;
-  status: string;
-  assignedTeam: string;
-  startDate: Date;
-}
 
 @Component({
   selector: 'project-page',
@@ -14,27 +8,7 @@ interface Project {
   styleUrls: ['./project-page.component.css']
 })
 export class ProjectPageComponent {
-  projects: Project[] = [
-    {
-      title: 'Project 1',
-      status: 'In Progress',
-      assignedTeam: 'Team A',
-      startDate: new Date('2023-08-01')
-    },
-    {
-      title: 'Project 2',
-      status: 'Done',
-      assignedTeam: 'Team B',
-      startDate: new Date('2023-08-10')
-    },
-    {
-      title: 'Project 3',
-      status: 'Failed',
-      assignedTeam: 'Team B',
-      startDate: new Date('2023-08-10')
-    },
-    // Add more projects...
-  ];
+  jobinfo: any;
 
   getStatusClass(status: string): string {
     switch (status.toLowerCase()) {
@@ -48,11 +22,21 @@ export class ProjectPageComponent {
         return '';
     }
   }
-  constructor(private router: Router,private myApiService: MyApiService) { }
-  navigateToAddEmployee() {
+
+  constructor(private router: Router, private myApiService: MyApiService) {
+  }
+
+  navigateToAddEmployee(id:string) {
+    localStorage.setItem('project_id',id)
     console.log('Navigating to Add Employee');
     // Use the router to navigate to the "add-employee" page
     this.router.navigateByUrl('assign-user-project');
+  }
+  navigateToWorkload(id:string) {
+    localStorage.setItem('project_id',id)
+    console.log('Navigating to Add Employee');
+    // Use the router to navigate to the "add-employee" page
+    this.router.navigateByUrl('project/workload');
   }
 
   navigateToAddProject() {
@@ -61,19 +45,18 @@ export class ProjectPageComponent {
     this.router.navigateByUrl('project/add_project');
   }
 
-  jobinfo: any;
+
   ngOnInit(): void {
     this.fetchJobInfo();
-
   }
 
   fetchJobInfo(): void {
     this.myApiService.getJobList().subscribe(
       (data) => {
-        this.jobinfo = data; // Store the retrieved user information
+        this.jobinfo = data;
         console.log('Job Info:', this.jobinfo);
       },
-
     );
   }
+
 }

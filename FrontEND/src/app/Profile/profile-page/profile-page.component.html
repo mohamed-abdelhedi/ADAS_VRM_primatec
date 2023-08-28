@@ -3,12 +3,12 @@
   <!-- Left Section: Employee Information -->
   <div class="employee-info">
     <div class="photo">
-      <img src="/src/assets/userImg.png" alt="User Photo" class="user-photo">
+      <img src="/assets/userImg.png" alt="User Photo" class="user-photo">
     </div>
     <div class="custom-row">
       <div class="custom-column">
         <p class="title">Name</p>
-        <p class="value">{{userProfile.firstname+' '+userProfile.lastname}}</p>
+        <p class="value">{{userProfile.firstname +' '+ userProfile.lastname}}</p>
       </div>
       <div class="custom-column">
         <p class="title">Department</p>
@@ -44,7 +44,7 @@
       <p class="value">Human Resources</p>
     </div>
     <div class="button">
-      <button class="edit-button">Edit Profile</button>
+      <button class="edit-button" (click)="navigateToAddSkills()">Edit Profile</button>
     </div>
   </div>
 
@@ -54,7 +54,7 @@
     <apx-column></apx-column>
     </div>
     <div class="apx-column">
-     <apx-line></apx-line>
+     <apx-line  ></apx-line>
     </div>
 
     <!-- Your graph components or placeholders go here -->

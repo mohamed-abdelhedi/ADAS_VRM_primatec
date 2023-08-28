@@ -25,13 +25,12 @@ fauser=faUser;
       (response) => {
         // Store the token in localStorage
         localStorage.setItem('access_token', response.access_token);
-
+        localStorage.setItem('authenticated',"true")
+        location.reload();
         console.log(response.access_token);
         this.router.navigate(['/dashboard']);
+
       },
-      (error) => {
-        console.error('Login error:', error);
-      }
     );
   }
 }

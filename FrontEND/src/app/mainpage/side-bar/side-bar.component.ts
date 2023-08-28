@@ -15,12 +15,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent {
-
   @Output() navItemClicked = new EventEmitter<number>();
   activeNavItem: number = 1; // Initialize activeNavItem with a default value (e.g., 1 for Dashboard)
-
-
-
   protected readonly faDashboard = faDashboard;
   protected readonly faUser = faUser;
   protected readonly faUsers = faUsers;
@@ -48,16 +44,13 @@ export class SideBarComponent {
     }else if (navItem === 5) {
       this.router.navigate(['/group']);
       this.activeNavItem=5;
-    }
-    else if (navItem === 6) {
+    } else if (navItem === 6) {
       this.router.navigate(['/project']);
       this.activeNavItem=6;
-    }
-    else if (navItem === 7) {
+    } else if (navItem === 7) {
       this.router.navigate(['/profile']);
       this.activeNavItem=7;
-    }
-    else if (navItem === 8) {
+    } else if (navItem === 8) {
       this.router.navigate(['/settings']);
       this.activeNavItem=8;
     }

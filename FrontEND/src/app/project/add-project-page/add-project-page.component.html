@@ -5,9 +5,9 @@
 
     <div class="form-row">
       <input class="custom_input" type="text" [(ngModel)]="JobData.projectName" placeholder="Project Name" step="10"/>
-      <select [(ngModel)]="selectedOption"  class="custom-select">
-        <option value="0" disabled selected>Select Team </option>
-        <option *ngFor="let team of teamInfo" [value]="team">{{ team.name }}</option>
+      <select [(ngModel)]="selectedOption" class="custom-select">
+        <option value="0" disabled selected>Select Team</option>
+        <option *ngFor="let team of teamInfo" [value]="team.team_id">{{ team.name }}</option>
       </select>
     </div>
 
@@ -37,7 +37,7 @@
 
   <!-- Buttons -->
   <div class="button-container">
-    <button class="clear-button">Clear</button>
+    <button class="clear-button" >Clear</button>
     <button class="add-button" (click)="onSubmit()">Submit</button>
   </div>
 </div>

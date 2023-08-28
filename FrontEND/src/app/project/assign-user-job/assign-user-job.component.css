@@ -1,21 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
 
 .form-row {
   display: flex;
   justify-content: flex-start;
-
   margin-bottom: 30px;
-
 }
 
 
-.button-container{
+.button-container {
   display: flex;
   justify-content: right;
   margin-top: 50px;
 }
-.clear-button{
+
+.clear-button {
   border-radius: 8px;
   border: 1px solid #264ECA;
   background: #fff;
@@ -32,7 +30,8 @@
   margin-right: 30px;
 
 }
-.add-button{
+
+.add-button {
   width: 140px;
   padding: 10px;
   border-radius: 8px;
@@ -47,6 +46,7 @@
   line-height: 24px; /* 150% */
   border: none;
 }
+
 /* custom-select.css */
 .custom-select {
   border: 1px solid #E8E8E8; /* Add your desired border style */
@@ -61,17 +61,17 @@
   /* Your container styles here */
   display: flex;
   flex-direction: column;
- margin-left: 50px;
+  margin-left: 50px;
   margin-bottom: 30px;
   margin-top: 50px;
 
 }
 
 
-.custom-select{
+.custom-select {
   border-radius: 8px;
   border: 1px solid #CCC;
-  width:240px;
+  width: 240px;
   padding: 16px;
   color: #666;
   font-family: 'Product Sans', sans-serif;
@@ -82,11 +82,12 @@
 
 }
 
-.custom_input{
+.custom_input {
   border-radius: 8px;
   border: 1px solid #CCC;
-  background: #fff;color: #666;
-  font-family:  'Product Sans', sans-serif;
+  background: #fff;
+  color: #666;
+  font-family: 'Product Sans', sans-serif;
   font-size: 16px;
   width: 300px;
   padding: 16px;
@@ -96,11 +97,51 @@
   margin-left: 100px;
 }
 
-.text-area{
+.text-area {
   padding: 16px;
   border-radius: 8px;
   border: 1px solid #CCC;
- width: 80%;
+  width: 80%;
 }
 
+.custom_input_first {
+  border: 1px solid #CCC;
+  background: #fff;
+  color: #666;
+  font-family: 'Product Sans', sans-serif;
+  font-size: 16px;
+  width: 300px;
+  padding: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  border-radius: 8px;
+}
 
+.custom-select1 {
+  border: 1px solid #E8E8E8; /* Add your desired border style */
+  border-radius: 8px; /* Add border radius */
+  background-color: #fff;
+  width: 300px;
+  color: white;
+
+}
+
+.custom-select1 .mat-select-value {
+  padding: 5px; /* Adjust padding */
+}
+
+.custom-select1 .mat-option {
+  padding: 5px 10px; /* Adjust padding for options */
+  color: #fff; /* Adjust text color for options */
+}
+
+.custom-select1 .mat-option:hover {
+  background-color: #fff; /* Adjust background color on hover */
+}
+.custom-select2{
+  width: 600px;
+}
+.option{
+  font-size: 18px;
+}

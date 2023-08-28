@@ -11,7 +11,7 @@
   border-radius: 6px;
   border: 1.812px solid #ECEEF6;
   background: #FFF;
-  width: 330px;
+  width: 100%;
   padding: 16px;
   margin: 16px;
   box-shadow: 0px 20px 50px 0px rgba(220, 224, 249, 0.50);
@@ -28,7 +28,7 @@
 }
 
 .project-status {
-  color: #FFA51D;
+  color: black;
   font-family: 'Product Sans', sans-serif;
   font-size: 20.296px;
   font-style: normal;
@@ -71,7 +71,6 @@
 .custom-button{
   border-radius: 12px;
   background: #264ECA;
-
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 198px;
   height: 47px;

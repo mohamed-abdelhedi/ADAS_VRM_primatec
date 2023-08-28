@@ -21,7 +21,7 @@
     <tr  *ngFor="let user of userInfo  | paginate: { itemsPerPage: 10, currentPage: p }">
 
       <td><div class="employee-info">
-        <img class="employee-image" src="/src/assets/userImg.png" alt="">
+        <img class="employee-image" src="/assets/userImg.png" alt="">
         <p class="employee-name" >{{ user.firstname +' '+ user.lastname}}</p>
       </div></td>
       <td>{{ user.name }}</td>

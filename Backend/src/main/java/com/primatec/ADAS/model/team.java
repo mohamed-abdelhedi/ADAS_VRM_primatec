@@ -1,5 +1,6 @@
 package com.primatec.ADAS.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.primatec.ADAS.model.User.User;
@@ -36,6 +37,7 @@ public class team {
     private Set<resource> resources = new HashSet<>();
 
     @OneToMany(mappedBy = "team")
+    @JsonIgnore
     private Set<project> project = new HashSet<>();
 
     @ManyToMany
@@ -44,6 +46,8 @@ public class team {
             joinColumns = @JoinColumn(name = "team_id", referencedColumnName = "team_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     )
+    @JsonIgnore
+
     private Set<User> users = new HashSet<>();
 
 
@@ -63,4 +67,9 @@ public class team {
             inverseJoinColumns = @JoinColumn(name = "group_id", referencedColumnName = "group_id")
     )
     private Set<group> groups = new HashSet<>();
+
+    @JsonCreator
+    public team(@JsonProperty("team_id") UUID team_id) {
+        this.team_id = team_id;
+    }
 }

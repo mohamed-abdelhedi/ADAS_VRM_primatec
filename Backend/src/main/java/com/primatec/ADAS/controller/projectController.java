@@ -3,6 +3,8 @@ import com.primatec.ADAS.model.project;
 import com.primatec.ADAS.model.User.User;
 import com.primatec.ADAS.services.projectServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,8 +27,9 @@ public class projectController {
     }
 
     @PostMapping("/add")
-    public void addProject(@RequestBody project project) {
-        projectService.saveProject(project);
+    public ResponseEntity<project> addProject(@RequestBody project project) {
+        project createdProject = projectService.saveProject(project);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdProject);
     }
     @GetMapping("/all")
     public List<project> getAllProjects() {

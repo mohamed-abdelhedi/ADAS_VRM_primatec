@@ -1,11 +1,14 @@
 package com.primatec.ADAS.controller;
 
+import com.primatec.ADAS.model.User.User;
 import com.primatec.ADAS.services.SkillService;
 import com.primatec.ADAS.model.skill;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -40,5 +43,4 @@ public class SkillController {
     }
 
 
-    // Add more mapping methods for skill-related operations
 }

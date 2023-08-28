@@ -1,13 +1,19 @@
-<nav-bar></nav-bar>
-<div class="custom-container" >
-  <div class="sidebar">
-    <side-bar (navItemClicked)="onNavItemClicked($event)"></side-bar>
-
-  </div >
-  <!-- Main Content Area -->
-  <div class="main-content">
-    <router-outlet></router-outlet>
+<!-- app.component.html -->
+<ng-container *ngIf="isAuthenticated; else loginPage">
+  <!-- Main structure -->
+  <nav-bar></nav-bar>
+  <div class="custom-container">
+    <div class="sidebar">
+      <side-bar (navItemClicked)="onNavItemClicked($event)"></side-bar>
+    </div>
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</div>
+</ng-container>
 
-
+<ng-template  #loginPage>
+  <!-- Login page -->
+  <login-page></login-page>
+</ng-template>

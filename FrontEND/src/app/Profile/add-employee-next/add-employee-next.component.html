@@ -1,0 +1,41 @@
+<div class="add-employee-form">
+  <div class="form-header">
+    <div class="form-container">
+      <mat-form-field class="custom-select">
+        <mat-label>Select your skills</mat-label>
+        <mat-select multiple (selectionChange)="onToppingsSelectionChange($event)">
+          <mat-option *ngFor="let skills of skillinfo" [value]="skills">{{ skills.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <table class="custom-table">
+        <thead>
+        <tr>
+          <th class="table-header">Skill</th>
+          <th class="table-header">Rate</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let topic of selectedSkills">
+          <td class="table-cell">{{topic.name}}</td>
+          <td class="table-cell rate-cell">
+            <ngb-rating [(rate)]="topic.proficiency"></ngb-rating>
+            <pre>Rate: <b>{{topic.proficiency}}</b></pre>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <textarea
+        [(ngModel)]="text"
+        (input)="countWords()"
+        placeholder="Description"
+      ></textarea>
+      <p class="word">{{ wordCount }} / 250 words</p>
+    </div>
+    <div class="button-container">
+      <button class="clear-button">Clear</button>
+      <button class="add-button" (click)="onSubmit()">Submit</button>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,7 @@ import {DASH} from "@angular/cdk/keycodes";
 import {DashboardPageComponent} from "./dashboard/dashboard-page/dashboard-page.component";
 import {TeamPageComponent} from "./team/team-page/team-page.component";
 import {AddEmployeeDialogComponent} from "./employee/add-employee-dialog/add-employee-dialog.component";
-import {AddEmployeeNextComponent} from "./employee/add-employee-next/add-employee-next.component";
+import {AddEmployeeNextComponent} from "./Profile/add-employee-next/add-employee-next.component";
 import {ProjectPageComponent} from "./project/project-page/project-page.component";
 import {AssignUserJobComponent} from "./project/assign-user-job/assign-user-job.component";
 import {ProfilePageComponent} from "./Profile/profile-page/profile-page.component";
@@ -17,10 +17,12 @@ import {GroupPageComponent} from "./group/group-page/group-page.component";
 import {AddDepartmentPageComponent} from "./department/add-department-page/add-department-page.component";
 import {AddGroupPageComponent} from "./group/add-group-page/add-group-page.component";
 import {LoginPageComponent} from "./login/login-page/login-page.component";
+import {SettingsPageComponent} from "./settings-page/settings-page.component";
+import {WorkloadPageComponent} from "./project/workload-page/workload-page.component";
 
 
 const routes: Routes = [
-
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardPageComponent },
   { path: 'employee', component: EmployeePageComponent },
   { path: 'team', component: TeamPageComponent },
@@ -35,7 +37,9 @@ const routes: Routes = [
   { path: 'group', component: GroupPageComponent },
   { path: 'department/add-department', component: AddDepartmentPageComponent },
   { path: 'group/add-group', component: AddGroupPageComponent },
-  { path: 'login', component: LoginPageComponent },
+  { path: 'settings', component: SettingsPageComponent },
+  { path: 'project/workload', component: WorkloadPageComponent },
+ // { path: 'login', component: LoginPageComponent },
 ];
 @NgModule({
   declarations: [],

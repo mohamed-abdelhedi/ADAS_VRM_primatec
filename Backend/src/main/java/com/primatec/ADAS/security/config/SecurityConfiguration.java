@@ -56,8 +56,7 @@ public class SecurityConfiguration {
 
         )
          .permitAll()
-           .requestMatchers("/api/teams/all","/api/**","/api/users/**").permitAll()
-
+           .requestMatchers("/api/**").permitAll()
         .anyRequest()
           .authenticated()
         .and()

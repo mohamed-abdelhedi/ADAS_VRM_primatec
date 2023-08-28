@@ -12,14 +12,15 @@ export class MyApiService {
   token = localStorage.getItem('access_token');
   headers = {"Authorization": "Bearer " + this.token};
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
 
   // getEmployeesList GET request
   getEmployeesList(): Observable<any> {
-    const  headers = {"Authorization": "Bearer " + this.token};
+    const headers = {"Authorization": "Bearer " + this.token};
     const url = `${this.baseUrl}/api/users/all`;
-    return this.http.get(url,{  headers });
+    return this.http.get(url, {headers});
   }
 
 
@@ -34,7 +35,7 @@ export class MyApiService {
     const headers = {"Authorization": "Bearer " + this.token};
     const url = `${this.baseUrl}/api/teams/all`;
     return new Observable((observer) => {
-      axios.get(url,{headers})
+      axios.get(url, {headers})
         .then((response) => {
           observer.next(response.data);
           observer.complete();
@@ -49,8 +50,9 @@ export class MyApiService {
   addTeam(data: any): Observable<any> {
     const headers = {"Authorization": "Bearer " + this.token};
     const url = `${this.baseUrl}/api/teams/add`; // Replace with your actual endpoint URL
-    return this.http.post(url, data,{headers});
+    return this.http.post(url, data, {headers});
   }
+
 //Project api
 
   getJobList(): Observable<any> {
@@ -67,13 +69,14 @@ export class MyApiService {
   getDepartmentList(): Observable<any> {
     const headers = {"Authorization": "Bearer " + this.token};
     const url = `${this.baseUrl}/api/departments/all`;
-    return this.http.get(url,{headers});
+    return this.http.get(url, {headers});
   }
 
   addDepartment(data: any): Observable<any> {
     const url = `${this.baseUrl}/api/departments/add`;
     return this.http.post(url, data);
   }
+
 //group api
   getGroupList(): Observable<any> {
     const url = `${this.baseUrl}/api/groups/all`;
@@ -91,10 +94,17 @@ export class MyApiService {
     const url = `${this.baseUrl}/api/skills/all`;
     return this.http.get(url);
   }
-  adduserSkills(data: any): Observable<any> {
-    const url = `${this.baseUrl}/api/user-skills/add/a6228c95-dbfd-4531-83bb-8fd72380661d`;
+
+  getSkillbyid(id: string): Observable<any> {
+    const url = `${this.baseUrl}/api/skills/${id}`;
+    return this.http.get(url);
+  }
+
+  adduserSkills(userid: string, data: any): Observable<any> {
+    const url = `${this.baseUrl}/api/user-skills/add/${userid}`;
     return this.http.post(url, data);
   }
+
   //test api
   test(): Observable<any> {
     const url = `${this.baseUrl}/api/v1/demo-controller`;
@@ -106,8 +116,84 @@ export class MyApiService {
   getUserProfile(userId: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
     const url = `${this.baseUrl}/api/users/${userId}`;
-    return this.http.get(url, { headers });
+    return this.http.get(url, {headers});
   }
 
+  //Project team api
+  assignProjectToTeam(teamId: string, projectId: string): Observable<any> {
+    const url = `${this.baseUrl}/api/teams/${teamId}/assign-projects`;
+    const requestBody = {"projectIds": [projectId]};
+    return this.http.put(url, requestBody);
+  }
 
+  //skills API
+
+  getUserSkills(skillid: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+    const url = `${this.baseUrl}/api/user-skills/${skillid}`;
+    return this.http.get(url, {headers});
+  }
+
+  getalluserSKILLS(userid: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+    const url = `${this.baseUrl}/api/user-skills/user/${userid}`;
+    return this.http.get(url, {headers});
+  }
+
+// workload API
+  addWorkload(data: any): Observable<any> {
+    const url = `${this.baseUrl}/api/workload/add`;
+    return this.http.post(url, data);
+  }
+
+  assignWorkloadtoProject(workloadId: string, requestBody: any): Observable<any> {
+    const url = `${this.baseUrl}/api/workload/${workloadId}/assign`;
+    return this.http.put(url, requestBody);
+  }
+
+  assignWorkloadSkills(workloadId: string, requestBody: any): Observable<any> {
+    const url = `${this.baseUrl}/api/workload/${workloadId}/assignskills`;
+    return this.http.put(url, requestBody);
+  }
+
+  getWorkload(projectid: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+    const url = `${this.baseUrl}/api/workload/project/${projectid}`;
+    return this.http.get(url, {headers});
+  }
+
+  getUserSkillProficiency(userId: string, skillId: string): Observable<Object[]> {
+    const url = `${this.baseUrl}/api/user-skills/proficiency?userId=${userId}&skillId=${skillId}`;
+    return this.http.get<Object[]>(url);
+  }
+
+  getGraph(userId: string, skillId: string): Observable<Object[]> {
+    const url = `${this.baseUrl}/api/user-skills/graph?userId=${userId}&skillId=${skillId}`;
+    return this.http.get<Object[]>(url);
+  }
+
+  UpdataWorkload(workloadId: string, requestBody: any): Observable<any> {
+    const url = `${this.baseUrl}/api/workload/${workloadId}`;
+    return this.http.put(url, requestBody);
+  }
+
+  getWorkloadSkills(workloadid: string): Observable<Object[]> {
+    const url = `${this.baseUrl}/api/workload/skills/${workloadid}`;
+    return this.http.get<Object[]>(url);
+  }
+
+  UpdateUserskill(userSkillId: string, requestBody: any): Observable<any> {
+    const url = `${this.baseUrl}/api/user-skills/${userSkillId}`;
+    return this.http.put(url, requestBody);
+  }
+
+  getUserSkillID(skillid: string, userid: string): Observable<Object[]> {
+    const url = `${this.baseUrl}/api/user-skills/getUserSkillIds?userId=${userid}&skillId=${skillid}`;
+    return this.http.get<Object[]>(url);
+  }
+
+  getUserSkillForPreviousMonth(skillid: string, userid: string): Observable<Object[]> {
+    const url = `${this.baseUrl}/api/user-skills/getUserSkillForPreviousMonth?userId=${userid}&skillId=${skillid}`;
+    return this.http.get<Object[]>(url);
+  }
 }
