@@ -14,10 +14,12 @@ public interface workloadDAO extends JpaRepository<Workload, UUID> {
     List<Workload> findWorkloadsByProjectId(UUID projectId);
     @Query("SELECT w FROM Workload w JOIN w.assignedUser p WHERE p.user_id = :userid")
     List<Workload> findWorkloadsByuserId(UUID userid);
-    @Query("SELECT count(w.percentage) FROM Workload w WHERE w.assignedUser.user_id = :userid AND CURRENT_DATE BETWEEN w.startDate AND w.deadLine")
-    List<Workload> findpercentage(@Param("userid")  UUID userId);
+    @Query("SELECT sum(w.percentage) FROM Workload w WHERE w.assignedUser.user_id = :userid AND w.workloadState=1")
+    Number findpercentage( UUID userid);
 
     @Query("SELECT w.skills FROM Workload w WHERE w.workloadId= :workloadId")
     List<Object> findWorkloadSkills(@Param("workloadId")  UUID workloadId);
 
+    @Query("SELECT count(r) FROM Workload r ")
+    Number SumWorkload();
 }

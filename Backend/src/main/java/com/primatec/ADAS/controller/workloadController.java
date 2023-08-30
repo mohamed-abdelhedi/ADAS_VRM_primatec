@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.plaf.nimbus.NimbusStyle;
 import java.util.*;
 
 @RestController
@@ -84,11 +85,16 @@ public class workloadController {
         return workloadService.getWorkloadsByProjectId(projectId);
     }
     @GetMapping("/percentage/{userId}")
-    public List<Workload> findpercentage(@PathVariable UUID userid) {
-        return workloadDAO.findpercentage(userid);
+    public Number findpercentage(@PathVariable UUID userId) {
+        return workloadDAO.findpercentage(userId);
     }
     @GetMapping("/skills/{workloadId}")
     public List<Object> findWorkloadSkills(@PathVariable UUID workloadId) {
         return workloadDAO.findWorkloadSkills(workloadId);
+    }
+
+    @GetMapping("/sum")
+    public Number getSumWorkload() {
+        return workloadDAO.SumWorkload();
     }
 }

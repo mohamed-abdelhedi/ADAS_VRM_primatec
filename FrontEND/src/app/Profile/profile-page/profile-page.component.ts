@@ -36,6 +36,7 @@ export class ProfilePageComponent {
     this.myApiService.getUserProfile(this.userId).subscribe(
       (response) => {
         this.userProfile = response;
+        localStorage.setItem('join_date',this.userProfile.joinDate)
         console.log(response);
       },
     );
@@ -66,8 +67,6 @@ export class ProfilePageComponent {
         for (const skillData of skillDataList) {
           this.myApiService.getUserSkillForPreviousMonth(skillData, this.userId).subscribe(userSkill => {
             console.log("userSkill", userSkill);
-
-
             const newUserSkill = {
               userId: this.userId,
               skillId: skillData,

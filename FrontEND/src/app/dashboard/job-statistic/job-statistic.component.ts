@@ -126,7 +126,7 @@ export class JobStatisticComponent {
         }
       },
       title: {
-        text: "Monthly jobs's task in 2023",
+        text: "Monthly jobs's Workload in 2023",
         floating: false,
         offsetY: 330,
         align: "center",

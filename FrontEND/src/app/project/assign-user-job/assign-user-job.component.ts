@@ -25,6 +25,7 @@ export class AssignUserJobComponent {
   newSkills: any;
   newSkillsdata: any;
   userskill: string[] = []
+  DomainInfo:any;
 
   onToppingsSelectionChange(event: any) {
     this.selectedSkills = event.value;
@@ -48,12 +49,20 @@ export class AssignUserJobComponent {
 
   ngOnInit(): void {
     this.fetchSkillInfo();
+    this.fetchDomainInfo();
   }
 
   fetchSkillInfo(): void {
     this.myApiService.getSkillList().subscribe(
       (data) => {
         this.SkillsInfo = data;
+      },
+    );
+  }
+  fetchDomainInfo(): void {
+    this.myApiService.getDomainList().subscribe(
+      (data) => {
+        this.DomainInfo = data;
       },
     );
   }
@@ -119,7 +128,8 @@ export class AssignUserJobComponent {
     description: '',
     percentage: '',
     workloadState: 'TO_DO',
-    deadLine: ''
+    deadLine: '',
+    domain:'',
   };
 
   assignProjects(): Observable<any> {

@@ -18,16 +18,16 @@
     </tr>
     </thead>
     <tbody>
-    <tr  *ngFor="let user of userInfo  | paginate: { itemsPerPage: 10, currentPage: p }">
+    <tr  *ngFor="let user of userInfo | paginate: { itemsPerPage: 10, currentPage: p };let i = index">
 
       <td><div class="employee-info">
         <img class="employee-image" src="/assets/userImg.png" alt="">
         <p class="employee-name" >{{ user.firstname +' '+ user.lastname}}</p>
       </div></td>
-      <td>{{ user.name }}</td>
-      <td>{{ user.email }}</td>
+      <td></td>
+      <td></td>
       <td>{{ user.totalProjects }}</td>
-      <td>{{ user.totalTasks }}</td>
+      <td>{{percentageInfo[i] }}</td>
       <td>{{ getAge(user.birthdate) }}</td>
       <td><div [ngClass]="getStatusClass(user.status)"> Offline</div>
     </td>

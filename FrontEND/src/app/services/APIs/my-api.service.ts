@@ -196,4 +196,30 @@ export class MyApiService {
     const url = `${this.baseUrl}/api/user-skills/getUserSkillForPreviousMonth?userId=${userid}&skillId=${skillid}`;
     return this.http.get<Object[]>(url);
   }
+  getDomainList(): Observable<any> {
+    const url = `${this.baseUrl}/api/domain/all`;
+    return this.http.get(url);
+  }
+
+  getPercentage(userId:string): Observable<any> {
+    const url = `${this.baseUrl}/api/workload/percentage/${userId}`;
+    return this.http.get(url);
+  }
+
+  sumworkload(): Observable<any> {
+    const url = `${this.baseUrl}/api/workload/sum`;
+    return this.http.get(url);
+  }
+  sumProject(): Observable<any> {
+    const url = `${this.baseUrl}/api/projects/sum`;
+    return this.http.get(url);
+  }
+  sumProjectByTeam(teamid:string): Observable<any> {
+    const url = `${this.baseUrl}/api/projects/sumByTeam/${teamid}`;
+    return this.http.get(url);
+  }
+  sumUser(): Observable<any> {
+    const url = `${this.baseUrl}/api/users/sum`;
+    return this.http.get(url);
+  }
 }

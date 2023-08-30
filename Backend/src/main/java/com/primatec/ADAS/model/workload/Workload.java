@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.primatec.ADAS.model.project;
 import com.primatec.ADAS.model.User.User;
 import com.primatec.ADAS.model.skill;
+import com.primatec.ADAS.model.domain;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,9 +36,6 @@ public class Workload {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "domain")
-    private String domain;
-
     @Temporal(TemporalType.DATE)
     @Column(name = "start_date")
     private Date startDate;
@@ -53,7 +51,10 @@ public class Workload {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-   private User assignedUser;
+    private User assignedUser;
+
+
+    private String domain;
 
     @ManyToMany
     @JoinTable(

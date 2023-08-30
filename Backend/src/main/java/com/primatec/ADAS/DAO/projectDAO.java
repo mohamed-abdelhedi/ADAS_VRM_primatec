@@ -10,6 +10,10 @@ import java.util.UUID;
 public interface projectDAO extends JpaRepository<project, UUID> {
     @Query("SELECT r FROM project r WHERE r.team.team_id = :teamId")
     List<project> findByTeamTeam_id(UUID teamId);
+    @Query("SELECT count(r) FROM project r WHERE r.team.team_id = :teamId")
+    Number SumProjectByTeam(UUID teamId);
+    @Query("SELECT count(r) FROM project r")
+    Number SumProject();
 
 
 }

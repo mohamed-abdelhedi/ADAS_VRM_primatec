@@ -1,4 +1,6 @@
 package com.primatec.ADAS.controller;
+
+import com.primatec.ADAS.DAO.projectDAO;
 import com.primatec.ADAS.model.project;
 import com.primatec.ADAS.model.User.User;
 import com.primatec.ADAS.services.projectServices;
@@ -19,11 +21,12 @@ import static com.primatec.ADAS.model.User.Role.USER;
 @CrossOrigin
 public class projectController {
     private projectServices projectService;
-
+    private projectDAO projectDAO;
 
     @Autowired
-    public projectController(projectServices projectService) {
+    public projectController(projectServices projectService,projectDAO projectDAO) {
         this.projectService = projectService;
+        this.projectDAO=projectDAO;
     }
 
     @PostMapping("/add")
@@ -31,6 +34,7 @@ public class projectController {
         project createdProject = projectService.saveProject(project);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdProject);
     }
+
     @GetMapping("/all")
     public List<project> getAllProjects() {
         return projectService.getAllProjects();
@@ -50,6 +54,7 @@ public class projectController {
 
         return projectService.updateProject(updatedProject);
     }
+
     @GetMapping("/{id}/users")
     public Set<User> getAllProjectUsers(@PathVariable UUID id) {
         return projectService.getAllProjectUsers(id);
@@ -60,4 +65,14 @@ public class projectController {
     public List<project> getProjectIdsByUserId(@PathVariable UUID userid) {
         return projectService.getProjectIdsByUserId(userid);
     }*/
+
+
+    @GetMapping("/sum")
+    public Number SumProject() {
+        return projectDAO.SumProject();
+    }
+    @GetMapping("/sumByTeam/{teamid}")
+    public Number getSumProjectByTeam(@PathVariable UUID teamid) {
+        return projectDAO.SumProjectByTeam(teamid);
+    }
 }

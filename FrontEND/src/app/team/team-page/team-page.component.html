@@ -17,7 +17,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr  *ngFor="let team of teamInfo  | paginate: { itemsPerPage: 10, currentPage: p }">
+    <tr  *ngFor="let team of teamInfo  | paginate: { itemsPerPage: 10, currentPage: p };let i =index">
 
       <td>
 
@@ -25,12 +25,12 @@
    </td>
       <td>{{ team.teamLead }}</td>
       <td>{{ team.description }}</td>
-      <td>{{ team.totalProjects }}</td>
+      <td>{{ projects[i] }}</td>
 
-<td><img class="employee-image" src="/src/assets/userImg.png" alt="">
-  <img class="employee-image" src="/src/assets/userImg.png" alt="">
-  <img class="employee-image" src="/src/assets/userImg.png" alt="">
-  <img class="employee-image" src="/src/assets/userImg.png" alt=""></td>
+<td><img class="employee-image" src="/assets/userImg.png" alt="">
+  <img class="employee-image" src="/assets/userImg.png" alt="">
+  <img class="employee-image" src="/assets/userImg.png" alt="">
+  <img class="employee-image" src="/assets/userImg.png" alt=""></td>
     </tr>
     </tbody>
   </table>

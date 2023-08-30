@@ -4,39 +4,59 @@
 
     <!-- Employee Selection -->
     <div class="form-row">
-      <input class="custom_input_first" [(ngModel)]="WorkloadData.name" placeholder="Workload Name" type="text">
-      <input class="custom_input" [(ngModel)]="WorkloadData.percentage"  type="number" min="0" max="100" placeholder="Workload" step="10"/>
+      <div class="form-column">
+        <input class="custom_input" [(ngModel)]="WorkloadData.name" placeholder="Workload Name" type="text">
+      </div>
+      <div class="form-column">
+        <input class="custom_input" [(ngModel)]="WorkloadData.percentage" type="number" min="0" max="100"
+               placeholder="Workload" step="10"/>
+      </div>
     </div>
 
 
     <!-- Other Selections -->
     <div class="form-row">
-      <mat-form-field class="custom-select1">
-        <mat-label>Select your skills</mat-label>
-        <mat-select  multiple (selectionChange)="onToppingsSelectionChange($event)" >
-          <mat-option *ngFor="let skills of SkillsInfo" [value]="skills.skill_id">{{ skills.name }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <input class="textbox-n custom_input"
-             placeholder="Start Date"
-             [(ngModel)]="WorkloadData.startDate"
-             type="text"
-             onfocus="(this.type='date')"
-             id="date">
-      <input class="textbox-n custom_input"
-             [(ngModel)]="WorkloadData.deadLine"
-             placeholder="Deadline"
-             type="text"
-             onfocus="(this.type='date')"
-      >
+      <div class="form-column">
+        <mat-form-field class="mat" >
+          <mat-label>Select Workload skills</mat-label>
+          <mat-select multiple (selectionChange)="onToppingsSelectionChange($event)">
+            <mat-option *ngFor="let skills of SkillsInfo" [value]="skills.skill_id">{{ skills.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-column">
+
+        <select [(ngModel)]="WorkloadData.domain" class="custom-select ">
+          <option value="0" disabled selected>Select The Domain</option>
+          <option class="option"*ngFor="let domain of DomainInfo" [value]="domain.name">{{ domain.name }}</option>
+        </select>
+      </div>
     </div>
 
     <div class="form-row">
-      <select [(ngModel)]="selectedOption"  class="custom-select custom-select2">
+      <select [(ngModel)]="selectedOption" class="custom-select name-input">
         <option value="0" disabled selected>Select Employee</option>
-        <option class="option" *ngFor="let user of userinfo2; let i = index" [value]="user.user_id">{{ user.firstname +' '+ user.lastname +' ==> ' + finalresults[user.user_id] }}</option>
+        <option class="option" *ngFor="let user of userinfo2; let i = index"
+                [value]="user.user_id">{{ user.firstname + ' ' + user.lastname + ' ==> ' + finalresults[user.user_id] }}</option>
       </select>
-
+    </div>
+    <div class="form-row">
+      <div class="form-column">
+        <input class="textbox-n custom_input"
+               placeholder="Start Date"
+               [(ngModel)]="WorkloadData.startDate"
+               type="text"
+               onfocus="(this.type='date')"
+               id="date">
+      </div>
+      <div class="form-column">
+        <input class="textbox-n custom_input"
+               [(ngModel)]="WorkloadData.deadLine"
+               placeholder="Deadline"
+               type="text"
+               onfocus="(this.type='date')"
+        >
+      </div>
     </div>
     <textarea class="text-area"
               [(ngModel)]="WorkloadData.description"

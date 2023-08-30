@@ -1,11 +1,13 @@
 
-
 .form-row {
   display: flex;
-  justify-content: flex-start;
+  justify-content:space-between;
   margin-bottom: 30px;
 }
-
+.form-column{
+  flex: 1;
+  padding-right: 20px;
+}
 
 .button-container {
   display: flex;
@@ -47,16 +49,6 @@
   border: none;
 }
 
-/* custom-select.css */
-.custom-select {
-  border: 1px solid #E8E8E8; /* Add your desired border style */
-  border-radius: 8px; /* Add border radius */
-  background-color: #fff;
-  width: 450px;
-  color: white;
-
-}
-
 .form-container {
   /* Your container styles here */
   display: flex;
@@ -64,14 +56,13 @@
   margin-left: 50px;
   margin-bottom: 30px;
   margin-top: 50px;
-
 }
 
 
 .custom-select {
   border-radius: 8px;
   border: 1px solid #CCC;
-  width: 240px;
+  width: 300px;
   padding: 16px;
   color: #666;
   font-family: 'Product Sans', sans-serif;
@@ -79,7 +70,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
-
 }
 
 .custom_input {
@@ -94,8 +84,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
-  margin-left: 100px;
 }
+
 
 .text-area {
   padding: 16px;
@@ -104,44 +94,12 @@
   width: 80%;
 }
 
-.custom_input_first {
-  border: 1px solid #CCC;
-  background: #fff;
-  color: #666;
-  font-family: 'Product Sans', sans-serif;
-  font-size: 16px;
-  width: 300px;
-  padding: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
-  border-radius: 8px;
-}
-
-.custom-select1 {
-  border: 1px solid #E8E8E8; /* Add your desired border style */
-  border-radius: 8px; /* Add border radius */
-  background-color: #fff;
-  width: 300px;
-  color: white;
-
-}
-
-.custom-select1 .mat-select-value {
-  padding: 5px; /* Adjust padding */
-}
-
-.custom-select1 .mat-option {
-  padding: 5px 10px; /* Adjust padding for options */
-  color: #fff; /* Adjust text color for options */
-}
-
-.custom-select1 .mat-option:hover {
-  background-color: #fff; /* Adjust background color on hover */
-}
-.custom-select2{
-  width: 600px;
-}
 .option{
   font-size: 18px;
+}
+.name-input{
+  width: 50%;
+}
+.mat{
+  width: 300px;
 }

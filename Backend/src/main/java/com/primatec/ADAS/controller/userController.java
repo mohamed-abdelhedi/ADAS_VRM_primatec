@@ -1,4 +1,5 @@
 package com.primatec.ADAS.controller;
+import com.primatec.ADAS.DAO.usersDAO;
 import com.primatec.ADAS.model.User.User;
 import com.primatec.ADAS.services.userServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,12 @@ import java.util.UUID;
 
 public class userController {
     private userServices userServices;
+    private usersDAO  usersDAO;
 
     @Autowired
-    public void UserController(userServices userServices) {
+    public void UserController(userServices userServices,usersDAO usersDAO) {
         this.userServices = userServices;
+        this.usersDAO=usersDAO;
     }
 
     @PostMapping("/add")
@@ -55,6 +58,10 @@ public class userController {
         return userServices.updateUser(updatedUser);
     }
 
+    @GetMapping("/sum")
+    public Number getSum() {
+        return usersDAO.SumUsers();
+    }
 
 
 }

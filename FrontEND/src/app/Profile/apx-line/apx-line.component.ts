@@ -93,21 +93,7 @@ export class ApxLineComponent {
         labels: {
           trim: false
         },
-        categories: [
-          "Jan",
-          "Fev",
-          "Mars",
-          "Apr",
-          "May",
-          "Jun",
-          "July",
-          "Aug",
-          "Sept",
-          "Oct",
-          "Nov",
-          "Dec",
-          "jan"
-        ]
+        categories: this.generateMonthCategories()
       },
       tooltip: {
         y: [
@@ -186,10 +172,36 @@ export class ApxLineComponent {
       });
     });
   }
+  alignDataArrays(dataArrays: { name: string, data: number[] }[]): void {
+    // Find the maximum length among all data arrays
+    const maxLength = Math.max(...dataArrays.map(item => item.data.length));
 
+    // Align data arrays by adding zeros at the beginning
+    dataArrays.forEach(item => {
+      const numberOfZerosToAdd = maxLength - item.data.length;
+      // @ts-ignore
+      item.data = Array.from({ length: numberOfZerosToAdd }).fill(0).concat(item.data);
+    });
+  }
+   generateMonthCategories(): string[] {
+    const categories: string[] = [];
+    // @ts-ignore
+     const currentDate = new Date(this.startDate);
+
+    for (let i = 0; i < 2 * 12; i++) {
+      const month = currentDate.toLocaleString('default', { month: 'short' });
+      const year = currentDate.getFullYear() % 100;
+      categories.push(`${month}-${year.toString().padStart(2, '0')}`);
+
+      currentDate.setMonth(currentDate.getMonth() + 1);
+    }
+
+    return categories;
+  }
+  startDate = localStorage.getItem('join_date');
   updateChartSeries() {
+    this.alignDataArrays(this.transformedData);
     this.chartOptions.series = this.transformedData;
-    // Manually update the chart series, if needed, depending on the chart library
-    // this.chart.updateSeries(this.transformedData);
+    console.log(this.transformedData)
   }
 }
